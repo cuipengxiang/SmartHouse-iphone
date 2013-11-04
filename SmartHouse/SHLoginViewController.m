@@ -127,9 +127,10 @@
     return NO;
 }
 
+/*
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    /*
+    
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
         [self.imageView setFrame:CGRectMake(0.0, 0.0, 1024, 748)];
         [self.imageView setImage:[UIImage imageNamed:@"login_bg"]];
@@ -145,9 +146,8 @@
         [self.passwordField setFrame:CGRectMake(204, 360, 360, 60)];
         [self.loginbox setFrame:CGRectMake(147.5, 240.0, 473.0, 338.0)];
     }
-     */
-    
 }
+*/
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
