@@ -29,7 +29,7 @@
             controller.backController = self;
             [self presentViewController:controller animated:YES completion:^(void){
                 [self.passwordField setText:nil];
-                [self.passwordField setBackground:[UIImage imageNamed:@"input_box"]];
+                [self.passwordField setBackground:[UIImage imageNamed:@"input_box_iphone"]];
                 [self.passwordField setPlaceholder:@"请输入密码"];
             }];
         } else {
@@ -42,7 +42,7 @@
             controller.backController = self;
             [self presentViewController:controller animated:YES completion:^(void){
                 [self.passwordField setText:nil];
-                [self.passwordField setBackground:[UIImage imageNamed:@"input_box"]];
+                [self.passwordField setBackground:[UIImage imageNamed:@"input_box_iphone"]];
                 [self.passwordField setPlaceholder:@"请输入密码"];
             }];
         } else {
