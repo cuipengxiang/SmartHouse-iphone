@@ -57,13 +57,13 @@
 {
     [super viewDidLoad];
     
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 768, 1004)];
-    [self.imageView setImage:[UIImage imageNamed:@"login_bg"]];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, App_Height)];
+    [self.imageView setImage:[UIImage imageNamed:@"login_bg_iphone"]];
     
     [self.view addSubview:self.imageView];
     
-    self.loginbox = [[UIImageView alloc] initWithFrame:CGRectMake(147.5, 240.0, 473.0, 338.0)];
-    [self.loginbox setImage:[UIImage imageNamed:@"login_box"]];
+    self.loginbox = [[UIImageView alloc] initWithFrame:CGRectMake(42.0, 80.0, 236.0, 170.0)];
+    [self.loginbox setImage:[UIImage imageNamed:@"login_box_iphone"]];
     [self.imageView addSubview:self.loginbox];
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTouch)];
@@ -75,33 +75,32 @@
 	loginLabel = [[UILabel alloc] init];
     [loginLabel setBackgroundColor:[UIColor clearColor]];
     [loginLabel setTextAlignment:NSTextAlignmentCenter];
-    [loginLabel setFont:[UIFont boldSystemFontOfSize:30.0]];
+    [loginLabel setFont:[UIFont boldSystemFontOfSize:14.0]];
     [loginLabel setTextColor:[UIColor colorWithRed:0.694 green:0.278 blue:0.020 alpha:1.0]];
     [loginLabel setText:@"智能家居系统"];
     [loginLabel sizeToFit];
-    [loginLabel setFrame:CGRectMake((768 - loginLabel.frame.size.width)/2.0, 270, loginLabel.frame.size.width, loginLabel.frame.size.height)];
+    [loginLabel setFrame:CGRectMake(42.0, 93.0, 236.0, 20.0)];
     [self.view addSubview:loginLabel];
     
-    self.passwordField = [[UITextField alloc] initWithFrame:CGRectMake(204, 360, 360, 60)];
+    self.passwordField = [[UITextField alloc] initWithFrame:CGRectMake(65.0, 142.0, 190.0, 32.0)];
     [self.passwordField setSecureTextEntry:YES];
     [self.passwordField setPlaceholder:@"请输入密码"];
-    [self.passwordField setFont:[UIFont systemFontOfSize:20.0]];
+    [self.passwordField setFont:[UIFont systemFontOfSize:12.0]];
     [self.passwordField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [self.passwordField setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     [self.passwordField setTextAlignment:NSTextAlignmentCenter];
     [self.passwordField setDelegate:self];
-    [self.passwordField setBackground:[UIImage imageNamed:@"input_box"]];
+    [self.passwordField setBackground:[UIImage imageNamed:@"input_box_iphone"]];
     [self.view addSubview:self.passwordField];
     
     self.loginButton = [[UIButton alloc] init];
-    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_login_normal"] forState:UIControlStateNormal];
-    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_login_pressed"] forState:UIControlStateHighlighted];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_login_iphone_normal"] forState:UIControlStateNormal];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_login_iphone_pressed"] forState:UIControlStateHighlighted];
     [self.loginButton sizeToFit];
-    [self.loginButton setFrame:CGRectMake(200, 450, 368, 75)];
+    [self.loginButton setFrame:CGRectMake(64.5, 194.0, 193.0, 37.5)];
     [self.loginButton addTarget:self action:@selector(loginCheck) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginButton];
-    
-    
+    /*
     if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
         [self.imageView setFrame:CGRectMake(0.0, 0.0, 1024, 748)];
         [self.imageView setImage:[UIImage imageNamed:@"login_bg"]];
@@ -117,18 +116,20 @@
         [self.passwordField setFrame:CGRectMake(204, 360, 360, 60)];
         [self.loginbox setFrame:CGRectMake(147.5, 240.0, 473.0, 338.0)];
     }
+    */
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-    return YES;
+    return NO;
 }
 
 - (BOOL)shouldAutorotate{
-    return YES;
+    return NO;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
+    /*
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
         [self.imageView setFrame:CGRectMake(0.0, 0.0, 1024, 748)];
         [self.imageView setImage:[UIImage imageNamed:@"login_bg"]];
@@ -144,13 +145,14 @@
         [self.passwordField setFrame:CGRectMake(204, 360, 360, 60)];
         [self.loginbox setFrame:CGRectMake(147.5, 240.0, 473.0, 338.0)];
     }
+     */
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self.passwordField setPlaceholder:@""];
-    [self.passwordField setBackground:[UIImage imageNamed:@"input_box_focused"]];
+    [self.passwordField setBackground:[UIImage imageNamed:@"input_box_focused_iphone"]];
 }
 
 
@@ -167,7 +169,7 @@
 {
     [self.passwordField resignFirstResponder];
     if (self.passwordField.text.length == 0) {
-        [self.passwordField setBackground:[UIImage imageNamed:@"input_box"]];
+        [self.passwordField setBackground:[UIImage imageNamed:@"input_box_iphone"]];
         [self.passwordField setPlaceholder:@"请输入密码"];
     }
 }
