@@ -34,11 +34,11 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.roc.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.roc.${PRODUCT_NAME:rfc1034identifier}-iphone</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>SmartHouse</string>
+	<string>SmartHouse-iphone</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

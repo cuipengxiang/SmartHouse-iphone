@@ -7,7 +7,7 @@
 //
 
 #import "SHLoginViewController.h"
-#import "SHControlViewController.h"
+#import "SHRoomsListViewController.h"
 
 @implementation SHLoginViewController
 
@@ -25,7 +25,7 @@
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
     if (password) {
         if ([password isEqualToString:[self.passwordField text]]) {
-            SHControlViewController *controller = [[SHControlViewController alloc] initWithNibName:nil bundle:nil];
+            SHRoomsListViewController *controller = [[SHRoomsListViewController alloc] initWithNibName:nil bundle:nil];
             controller.backController = self;
             [self presentViewController:controller animated:YES completion:^(void){
                 [self.passwordField setText:nil];
@@ -38,7 +38,7 @@
         }
     } else {
         if ([[self.passwordField text] isEqualToString:@"0000"]) {
-            SHControlViewController *controller = [[SHControlViewController alloc] initWithNibName:nil bundle:nil];
+            SHRoomsListViewController *controller = [[SHRoomsListViewController alloc] initWithNibName:nil bundle:nil];
             controller.backController = self;
             [self presentViewController:controller animated:YES completion:^(void){
                 [self.passwordField setText:nil];
