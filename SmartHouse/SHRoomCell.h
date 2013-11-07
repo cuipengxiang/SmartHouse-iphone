@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SHRoomModel.h"
 
 @interface SHRoomCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *image;
 @property (nonatomic, strong) UIImageView *line;
+@property (nonatomic, strong) SHRoomModel *data;
 
 @end

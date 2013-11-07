@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SHLoginViewController.h"
+//#import "SHLoginViewController.h"
 #import "AppDelegate.h"
 
 @interface SHRoomsListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
@@ -21,5 +21,6 @@
 @property(nonatomic, strong)UITableView *tableView;
 
 - (void)setupNavigationBar:(float)width;
+- (void)onBackButtonClick;
 
 @end

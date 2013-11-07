@@ -8,6 +8,7 @@
 
 #import "SHRoomsListViewController.h"
 #import "SHRoomCell.h"
+#import "SHRoomDetailViewController.h"
 
 @interface SHRoomsListViewController ()
 
@@ -80,7 +81,7 @@
 
 - (void)onBackButtonClick
 {
-    [self.backController willAnimateRotationToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:1.0];
+    //[self.backController willAnimateRotationToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:1.0];
     [self dismissViewControllerAnimated:YES completion:^(void){
     }];
 }
@@ -94,7 +95,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    SHRoomDetailViewController *controller = [[SHRoomDetailViewController alloc] initWithNibName:nil bundle:nil];
+    controller.model = [(SHRoomCell *)[tableView cellForRowAtIndexPath:indexPath] data];
+    [self presentViewController:controller animated:YES completion:^(void){
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -112,6 +116,7 @@
     }
     NSString *roomName = [[self.myAppDelegate.models objectAtIndex:indexPath.row] name];
     [cell.textLabel setText:roomName];
+    cell.data = [self.myAppDelegate.models objectAtIndex:indexPath.row];
     [cell.textLabel setFont:[UIFont boldSystemFontOfSize:18.0]];
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     [cell setBackgroundColor:[UIColor clearColor]];
