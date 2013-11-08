@@ -8,6 +8,8 @@
 
 #import "SHRoomDetailViewController.h"
 
+#define MODE_BTN_BASE_TAG 1000
+
 @interface SHRoomDetailViewController ()
 
 @end
@@ -83,10 +85,17 @@
     
     left = [[UIButton alloc] initWithFrame:CGRectMake(19.0, 58.5, 21.0, 39.0)];
     [left setImage:[UIImage imageNamed:@"left_iphone"] forState:UIControlStateNormal];
+    [left addTarget:self action:@selector(onScrollLeftClick:) forControlEvents:UIControlEventTouchUpInside];
     right = [[UIButton alloc] initWithFrame:CGRectMake(280.0, 58.5, 21.0, 39.0)];
     [right setImage:[UIImage imageNamed:@"right_iphone"] forState:UIControlStateNormal];
+    [right addTarget:self action:@selector(onScrollRightClick:) forControlEvents:UIControlEventTouchUpInside];
     [modeView addSubview:left];
     [modeView addSubview:right];
+    
+    modeScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(60.0, 48.0, 200.0, 60.0)];
+    [modeScroll setBackgroundColor:[UIColor clearColor]];
+    [modeView addSubview:modeScroll];
+    [self setupModeSelectBar:self.model];
 }
 
 - (void)onBackButtonClick
@@ -94,6 +103,55 @@
     [self dismissViewControllerAnimated:YES completion:^(void){
     }];
 }
+
+- (void)setupModeSelectBar:(SHRoomModel *)currentModel
+{
+    self.currentModePage = 0;
+    [modeScroll setBounces:YES];
+    [modeScroll setShowsHorizontalScrollIndicator:NO];
+    [modeScroll setContentOffset:CGPointMake(0, 0)];
+    [modeScroll setPagingEnabled:YES];
+    
+    [modeScroll setContentSize:CGSizeMake(200.0*self.model.modesNames.count, 60.0f)];
+    for (int i = 0; i < self.model.modesNames.count; i++) {
+        UIButton *modeButton = [[UIButton alloc] initWithFrame:CGRectMake(18.0 + i*200.0, 1.0, 164.0, 58.0)];
+        [modeButton setTitle:[self.model.modesNames objectAtIndex:i] forState:UIControlStateNormal];
+        [modeButton setTitle:[self.model.modesNames objectAtIndex:i] forState:UIControlStateSelected];
+        [modeButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 30, 0, 0)];
+        [modeButton setBackgroundImage:[UIImage imageNamed:@"mode_normal_iphone"] forState:UIControlStateNormal];
+        [modeButton setBackgroundImage:[UIImage imageNamed:@"mode_selected_iphone"] forState:UIControlStateSelected];
+        [modeButton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [modeButton setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0] forState:UIControlStateNormal];
+        [modeButton setTag:MODE_BTN_BASE_TAG + i];
+        [modeButton addTarget:self action:@selector(onModeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [modeScroll addSubview:modeButton];
+    }
+}
+
+- (void)onScrollLeftClick:(id)sender
+{
+    self.currentModePage = modeScroll.contentOffset.x/200.0;
+    if (self.currentModePage > 0) {
+        self.currentModePage = self.currentModePage - 1;
+        CGPoint point = CGPointMake(200.0*self.currentModePage, 0.0);
+        [modeScroll setContentOffset:point animated:YES];
+    }
+}
+
+- (void)onScrollRightClick:(id)sender
+{
+    if ((int)modeScroll.contentOffset.x % 200 != 0) {
+        self.currentModePage = modeScroll.contentOffset.x/200.0 + 1;
+    } else {
+        self.currentModePage = modeScroll.contentOffset.x/200.0;
+    }
+    if (self.currentModePage < self.model.modesNames.count - 1) {
+        self.currentModePage = self.currentModePage + 1;
+        CGPoint point = CGPointMake(200.0*self.currentModePage, 0.0);
+        [modeScroll setContentOffset:point animated:YES];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
