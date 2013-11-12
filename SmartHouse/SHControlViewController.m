@@ -529,7 +529,7 @@
 
 - (void)sendCommand:(NSString *)cmd;
 {
-    [self.myAppDelegate sendCommand:cmd from:self];
+    [self.myAppDelegate sendCommand:cmd];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{

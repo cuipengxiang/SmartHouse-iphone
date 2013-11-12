@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 //#import "SHLoginViewController.h"
 #import "AppDelegate.h"
+#import "SHStateViewController.h"
 
-@interface SHRoomsListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface SHRoomsListViewController : SHStateViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong)AppDelegate *myAppDelegate;
 @property(nonatomic, retain)SHLoginViewController *backController;
 @property(nonatomic, strong)UINavigationBar *navigationBar;
-@property(nonatomic, strong)UIButton *networkStateButton;
 @property(nonatomic, strong)UIBarButtonItem *networkBarButton;
 @property(nonatomic, strong)UINavigationItem *item;
 @property(nonatomic, strong)UITableView *tableView;

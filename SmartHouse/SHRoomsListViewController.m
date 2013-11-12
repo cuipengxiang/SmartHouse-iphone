@@ -77,6 +77,8 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView reloadData];
     [self.view addSubview:self.tableView];
+    
+    [self.myAppDelegate startQuery:nil from:self];
 }
 
 - (void)onBackButtonClick
@@ -85,8 +87,6 @@
     [self dismissViewControllerAnimated:YES completion:^(void){
     }];
 }
-
-
 
 #pragma mark UITableViewDelegate
 

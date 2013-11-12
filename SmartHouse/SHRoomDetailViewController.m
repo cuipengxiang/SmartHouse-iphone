@@ -20,7 +20,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.socketQueue = dispatch_queue_create("socketQueue1", NULL);
+        self.myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -96,6 +97,8 @@
     [modeScroll setBackgroundColor:[UIColor clearColor]];
     [modeView addSubview:modeScroll];
     [self setupModeSelectBar:self.model];
+    
+    [self.myAppDelegate startQuery:self.model from:self];
 }
 
 - (void)onBackButtonClick
@@ -150,6 +153,69 @@
         CGPoint point = CGPointMake(200.0*self.currentModePage, 0.0);
         [modeScroll setContentOffset:point animated:YES];
     }
+}
+
+- (void)onModeButtonClick:(UIButton *)button
+{
+    for (int i = MODE_BTN_BASE_TAG; i < MODE_BTN_BASE_TAG + self.model.modesNames.count; i++) {
+        [(UIButton *)[modeScroll viewWithTag:i] setSelected:NO];
+    }
+    [button setSelected:YES];
+    
+    self.skipQuery = 1;
+    NSString *commandSend = [NSString stringWithFormat:@"%@\r\n", [self.model.modesCmds objectAtIndex:button.tag - MODE_BTN_BASE_TAG]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^(void){
+        NSError *error;
+        GCDAsyncSocket *socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.socketQueue];
+        socket.command = commandSend;
+        [socket connectToHost:self.myAppDelegate.host onPort:self.myAppDelegate.port withTimeout:3.0 error:&error];
+    });
+}
+
+
+- (void)setCurrentMode:(NSString *)mode
+{
+    //跳过点击按钮后的第一次查询
+    if (self.skipQuery == 1) {
+        self.skipQuery = 0;
+        return;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        int btn_tag = -1;
+        for (int i = MODE_BTN_BASE_TAG; i < MODE_BTN_BASE_TAG + self.model.modesNames.count; i++) {
+            int location = [mode rangeOfString:[self.model.modeBacks objectAtIndex:i - MODE_BTN_BASE_TAG]].location;
+            
+            if (location == INT32_MAX) {
+                //[(UIButton *)[self.modeView viewWithTag:i] setSelected:NO];
+            } else {
+                //[(UIButton *)[self.modeView viewWithTag:i] setSelected:YES];
+                btn_tag = i;
+            }
+        }
+        if (btn_tag > 0) {
+            for (int i = MODE_BTN_BASE_TAG; i < MODE_BTN_BASE_TAG + self.model.modesNames.count;i++) {
+                if (i == btn_tag) {
+                    [(UIButton *)[modeScroll viewWithTag:i] setSelected:YES];
+                } else {
+                    [(UIButton *)[modeScroll viewWithTag:i] setSelected:NO];
+                }
+            }
+        }
+    });
+}
+
+
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+{
+    [sock writeData:[sock.command dataUsingEncoding:NSUTF8StringEncoding] withTimeout:3 tag:0];
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
+{
+    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:1 tag:0];
+    [sock disconnect];
+    sock = nil;
 }
 
 

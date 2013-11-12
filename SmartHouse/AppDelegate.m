@@ -7,10 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SHLoginViewController.h"
-#import "SHReadConfigFile.h"
-#import "SHControlViewController.h"
-
+#import "SHRoomDetailViewController.h"
 
 @implementation AppDelegate
 
@@ -28,7 +25,8 @@
     
     //初始化Socket连接
     self.socketQueue = dispatch_queue_create("socketQueue", NULL);
-
+    self.myModeThread = [[NSThread alloc] initWithTarget:self selector:@selector(queryMode:) object:nil];
+    
     self.candown = YES;
     self.canup = YES;
     
@@ -63,6 +61,35 @@
 }
 
 
+- (void)startQuery:(SHRoomModel *)queryModel from:(SHStateViewController *)controller
+{
+    self.mainController = controller;
+    if (queryModel) {
+        self.model = queryModel;
+    } else {
+        self.model = [self.models objectAtIndex:0];
+    }
+    if (![self.myModeThread isExecuting]) {
+        [self.myModeThread start];
+        self.needquery = YES;
+    }
+}
+
+- (void)stopQuery
+{
+    self.needquery = NO;
+}
+
+- (void)queryMode:(NSThread *)thread
+{
+    while (YES) {
+        if (self.needquery) {
+            [self sendCommand:self.model.queryCmd];
+            [NSThread sleepForTimeInterval:4.0];
+        }
+    }
+}
+
 #pragma mark Socket Delegate
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,29 +107,30 @@
 {
     NSData *strData = [data subdataWithRange:NSMakeRange(0, [data length] - 2)];
     NSString *msg = [[NSString alloc] initWithData:strData encoding:NSUTF8StringEncoding];
-    [(SHControlViewController *)self.mainController setCurrentMode:msg];
-    NSLog(@"read:%@", msg);
+    if ((self.mainController)&&([self.mainController isKindOfClass:[SHRoomDetailViewController class]])) {
+        [(SHRoomDetailViewController *)self.mainController setCurrentMode:msg];
+    }
     [sock disconnect];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
-    if (err) {
-        [(SHControlViewController *)self.mainController setNetworkState:NO];
-    } else {
-        [(SHControlViewController *)self.mainController setNetworkState:YES];
+    if (self.mainController) {
+        if (err) {
+            [self.mainController setNetworkState:NO];
+        } else {
+            [self.mainController setNetworkState:YES];
+        }
     }
 }
 
-- (void)sendCommand:(NSString *)command from:(UIViewController *)controller
+- (void)sendCommand:(NSString *)command
 {
     NSError *error = nil;
-    self.mainController = controller;
     NSString *commandSend = [NSString stringWithFormat:@"%@\r\n",command];
     GCDAsyncSocket *socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.socketQueue];
     socket.command = commandSend;
     [socket connectToHost:self.host onPort:self.port withTimeout:3.0 error:&error];
 }
-
 
 @end
