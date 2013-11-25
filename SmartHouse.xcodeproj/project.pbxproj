@@ -58,6 +58,7 @@
 		D8421D0F17BA853500C39DA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8421D0E17BA853500C39DA0 /* AppDelegate.m */; };
 		D8421D1817BA853500C39DA0 /* SHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8421D1717BA853500C39DA0 /* SHLoginViewController.m */; };
 		D868030C1843962D0099407D /* SHControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D868030B1843962D0099407D /* SHControlViewController.m */; };
+		D868030F1843967F0099407D /* SHModeSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D868030E1843967F0099407D /* SHModeSelectViewController.m */; };
 		D86B0D451819FD620098A755 /* SHSettingsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D86B0D441819FD620098A755 /* SHSettingsNewViewController.m */; };
 		D8AB3F52182B17D8006E0D21 /* arrow_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F4C182B17D8006E0D21 /* arrow_iphone.png */; };
 		D8AB3F53182B17D8006E0D21 /* arrow_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F4D182B17D8006E0D21 /* arrow_iphone@2x.png */; };
@@ -145,6 +146,8 @@
 		D8421D1717BA853500C39DA0 /* SHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLoginViewController.m; sourceTree = "<group>"; };
 		D868030A1843962D0099407D /* SHControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHControlViewController.h; sourceTree = "<group>"; };
 		D868030B1843962D0099407D /* SHControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHControlViewController.m; sourceTree = "<group>"; };
+		D868030D1843967F0099407D /* SHModeSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHModeSelectViewController.h; sourceTree = "<group>"; };
+		D868030E1843967F0099407D /* SHModeSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHModeSelectViewController.m; sourceTree = "<group>"; };
 		D86B0D431819FD620098A755 /* SHSettingsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingsNewViewController.h; sourceTree = "<group>"; };
 		D86B0D441819FD620098A755 /* SHSettingsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingsNewViewController.m; sourceTree = "<group>"; };
 		D8AB3F4C182B17D8006E0D21 /* arrow_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_iphone.png; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				D831DCC41828E54E00DCA400 /* SHRoomCell.m */,
 				D8AB3F58182B2599006E0D21 /* SHRoomDetailViewController.h */,
 				D8AB3F59182B2599006E0D21 /* SHRoomDetailViewController.m */,
+				D868030D1843967F0099407D /* SHModeSelectViewController.h */,
+				D868030E1843967F0099407D /* SHModeSelectViewController.m */,
 				D8F056F817BAC95500DF2928 /* SHSettingsViewController.h */,
 				D8F056F917BAC95500DF2928 /* SHSettingsViewController.m */,
 				D86B0D431819FD620098A755 /* SHSettingsNewViewController.h */,
@@ -461,6 +466,7 @@
 				D818FD821843E42500184026 /* SHStateViewController.m in Sources */,
 				D8421D1817BA853500C39DA0 /* SHLoginViewController.m in Sources */,
 				D831DCAE1828C90500DCA400 /* SHRoomsListViewController.m in Sources */,
+				D868030F1843967F0099407D /* SHModeSelectViewController.m in Sources */,
 				D8F056FB17BAC95600DF2928 /* SHSettingsViewController.m in Sources */,
 				D816387017BB0501008FAD0E /* SHReadConfigFile.m in Sources */,
 				D86B0D451819FD620098A755 /* SHSettingsNewViewController.m in Sources */,
