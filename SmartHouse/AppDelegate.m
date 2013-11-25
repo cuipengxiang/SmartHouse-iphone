@@ -30,6 +30,8 @@
     self.candown = YES;
     self.canup = YES;
     
+    self.networkState = YES;
+    
     return YES;
 }
 
@@ -108,7 +110,7 @@
     NSData *strData = [data subdataWithRange:NSMakeRange(0, [data length] - 2)];
     NSString *msg = [[NSString alloc] initWithData:strData encoding:NSUTF8StringEncoding];
     if ((self.mainController)&&([self.mainController isKindOfClass:[SHRoomDetailViewController class]])) {
-        [(SHRoomDetailViewController *)self.mainController setCurrentMode:msg];
+        //[(SHRoomDetailViewController *)self.mainController setCurrentMode:msg];
     }
     [sock disconnect];
 }
@@ -118,8 +120,10 @@
     if (self.mainController) {
         if (err) {
             [self.mainController setNetworkState:NO];
+            self.networkState = NO;
         } else {
             [self.mainController setNetworkState:YES];
+            self.networkState = YES;
         }
     }
 }

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SHLoginViewController.h"
 #import "GCDAsyncSocket.h"
-#import "SHLoginViewController.h"
 #import "SHReadConfigFile.h"
 #import "SHRoomModel.h"
 #import "SHStateViewController.h"
@@ -30,6 +29,7 @@
 @property(strong, nonatomic) SHRoomModel *model;
 @property(nonatomic, strong) NSThread *myModeThread;
 @property BOOL needquery;
+@property BOOL networkState;
 
 - (void)sendCommand:(NSString *)command;
 - (void)startQuery:(SHRoomModel *)queryModel from:(UIViewController *)controller;

@@ -12,9 +12,15 @@
 		52336A0617C0870B0094CE29 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52336A0117C086CC0094CE29 /* CFNetwork.framework */; };
 		52E2297C17BBAA470086355A /* SHRoomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2297B17BBAA470086355A /* SHRoomModel.m */; };
 		D816387017BB0501008FAD0E /* SHReadConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D816386F17BB0501008FAD0E /* SHReadConfigFile.m */; };
+		D818FD761843E0E600184026 /* btn_mode_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD741843E0E600184026 /* btn_mode_iphone.png */; };
+		D818FD771843E0E600184026 /* btn_mode_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD751843E0E600184026 /* btn_mode_iphone@2x.png */; };
+		D818FD7C1843E42500184026 /* btn_network_in_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD781843E42500184026 /* btn_network_in_iphone.png */; };
+		D818FD7D1843E42500184026 /* btn_network_in_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD791843E42500184026 /* btn_network_in_iphone@2x.png */; };
+		D818FD7E1843E42500184026 /* btn_network_out_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD7A1843E42500184026 /* btn_network_out_iphone.png */; };
+		D818FD7F1843E42500184026 /* btn_network_out_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD7B1843E42500184026 /* btn_network_out_iphone@2x.png */; };
+		D818FD821843E42500184026 /* SHStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D818FD811843E42500184026 /* SHStateViewController.m */; };
 		D81BD48F17C5F16800D96702 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D81BD48E17C5F16800D96702 /* icon.png */; };
 		D81BD49117C5F16D00D96702 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D81BD49017C5F16D00D96702 /* icon@2x.png */; };
-		D82FECD81830717700CFBBDF /* SHStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D82FECD71830717700CFBBDF /* SHStateViewController.m */; };
 		D831DCAE1828C90500DCA400 /* SHRoomsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D831DCAD1828C90500DCA400 /* SHRoomsListViewController.m */; };
 		D831DCB11828D08400DCA400 /* topbar_bg_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D831DCAF1828D08400DCA400 /* topbar_bg_iphone.png */; };
 		D831DCB21828D08400DCA400 /* topbar_bg_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D831DCB01828D08400DCA400 /* topbar_bg_iphone@2x.png */; };
@@ -51,6 +57,7 @@
 		D8421D0B17BA853500C39DA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8421D0A17BA853500C39DA0 /* main.m */; };
 		D8421D0F17BA853500C39DA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8421D0E17BA853500C39DA0 /* AppDelegate.m */; };
 		D8421D1817BA853500C39DA0 /* SHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8421D1717BA853500C39DA0 /* SHLoginViewController.m */; };
+		D868030C1843962D0099407D /* SHControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D868030B1843962D0099407D /* SHControlViewController.m */; };
 		D86B0D451819FD620098A755 /* SHSettingsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D86B0D441819FD620098A755 /* SHSettingsNewViewController.m */; };
 		D8AB3F52182B17D8006E0D21 /* arrow_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F4C182B17D8006E0D21 /* arrow_iphone.png */; };
 		D8AB3F53182B17D8006E0D21 /* arrow_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F4D182B17D8006E0D21 /* arrow_iphone@2x.png */; };
@@ -59,8 +66,6 @@
 		D8AB3F56182B17D8006E0D21 /* list_bg_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F50182B17D8006E0D21 /* list_bg_iphone.png */; };
 		D8AB3F57182B17D8006E0D21 /* list_bg_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F51182B17D8006E0D21 /* list_bg_iphone@2x.png */; };
 		D8AB3F5A182B2599006E0D21 /* SHRoomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AB3F59182B2599006E0D21 /* SHRoomDetailViewController.m */; };
-		D8AB3F5D182B345C006E0D21 /* mode_bg_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F5B182B345C006E0D21 /* mode_bg_iphone.png */; };
-		D8AB3F5E182B345C006E0D21 /* mode_bg_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F5C182B345C006E0D21 /* mode_bg_iphone@2x.png */; };
 		D8AB3F65182B3958006E0D21 /* btn_curtain_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F5F182B3958006E0D21 /* btn_curtain_iphone.png */; };
 		D8AB3F66182B3958006E0D21 /* btn_curtain_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F60182B3958006E0D21 /* btn_curtain_iphone@2x.png */; };
 		D8AB3F67182B3958006E0D21 /* btn_light_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F61182B3958006E0D21 /* btn_light_iphone.png */; };
@@ -72,7 +77,6 @@
 		D8AB3F71182B3C91006E0D21 /* right_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F6D182B3C91006E0D21 /* right_iphone.png */; };
 		D8AB3F72182B3C91006E0D21 /* right_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F6E182B3C91006E0D21 /* right_iphone@2x.png */; };
 		D8EEBD0D17BC7F8200200262 /* SHDetailContolView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EEBD0C17BC7F8200200262 /* SHDetailContolView.m */; };
-		D8F056EE17BA8CE300DF2928 /* SHControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F056EC17BA8CE300DF2928 /* SHControlViewController.m */; };
 		D8F056FB17BAC95600DF2928 /* SHSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F056F917BAC95500DF2928 /* SHSettingsViewController.m */; };
 		D8F5BEB217BDD10000D3500A /* SHMusicControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F5BEB117BDD10000D3500A /* SHMusicControlView.m */; };
 /* End PBXBuildFile section */
@@ -86,10 +90,16 @@
 		52E2297B17BBAA470086355A /* SHRoomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRoomModel.m; sourceTree = "<group>"; };
 		D816386E17BB0501008FAD0E /* SHReadConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHReadConfigFile.h; sourceTree = "<group>"; };
 		D816386F17BB0501008FAD0E /* SHReadConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHReadConfigFile.m; sourceTree = "<group>"; };
+		D818FD741843E0E600184026 /* btn_mode_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_mode_iphone.png; sourceTree = "<group>"; };
+		D818FD751843E0E600184026 /* btn_mode_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_mode_iphone@2x.png"; sourceTree = "<group>"; };
+		D818FD781843E42500184026 /* btn_network_in_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_network_in_iphone.png; sourceTree = "<group>"; };
+		D818FD791843E42500184026 /* btn_network_in_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_network_in_iphone@2x.png"; sourceTree = "<group>"; };
+		D818FD7A1843E42500184026 /* btn_network_out_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_network_out_iphone.png; sourceTree = "<group>"; };
+		D818FD7B1843E42500184026 /* btn_network_out_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_network_out_iphone@2x.png"; sourceTree = "<group>"; };
+		D818FD801843E42500184026 /* SHStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHStateViewController.h; sourceTree = "<group>"; };
+		D818FD811843E42500184026 /* SHStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHStateViewController.m; sourceTree = "<group>"; };
 		D81BD48E17C5F16800D96702 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		D81BD49017C5F16D00D96702 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
-		D82FECD61830717700CFBBDF /* SHStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHStateViewController.h; sourceTree = "<group>"; };
-		D82FECD71830717700CFBBDF /* SHStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHStateViewController.m; sourceTree = "<group>"; };
 		D831DCAC1828C90500DCA400 /* SHRoomsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRoomsListViewController.h; sourceTree = "<group>"; };
 		D831DCAD1828C90500DCA400 /* SHRoomsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRoomsListViewController.m; sourceTree = "<group>"; };
 		D831DCAF1828D08400DCA400 /* topbar_bg_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar_bg_iphone.png; sourceTree = "<group>"; };
@@ -133,6 +143,8 @@
 		D8421D0E17BA853500C39DA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D8421D1617BA853500C39DA0 /* SHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHLoginViewController.h; sourceTree = "<group>"; };
 		D8421D1717BA853500C39DA0 /* SHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLoginViewController.m; sourceTree = "<group>"; };
+		D868030A1843962D0099407D /* SHControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHControlViewController.h; sourceTree = "<group>"; };
+		D868030B1843962D0099407D /* SHControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHControlViewController.m; sourceTree = "<group>"; };
 		D86B0D431819FD620098A755 /* SHSettingsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingsNewViewController.h; sourceTree = "<group>"; };
 		D86B0D441819FD620098A755 /* SHSettingsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingsNewViewController.m; sourceTree = "<group>"; };
 		D8AB3F4C182B17D8006E0D21 /* arrow_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_iphone.png; sourceTree = "<group>"; };
@@ -143,8 +155,6 @@
 		D8AB3F51182B17D8006E0D21 /* list_bg_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_bg_iphone@2x.png"; sourceTree = "<group>"; };
 		D8AB3F58182B2599006E0D21 /* SHRoomDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRoomDetailViewController.h; sourceTree = "<group>"; };
 		D8AB3F59182B2599006E0D21 /* SHRoomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRoomDetailViewController.m; sourceTree = "<group>"; };
-		D8AB3F5B182B345C006E0D21 /* mode_bg_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_bg_iphone.png; sourceTree = "<group>"; };
-		D8AB3F5C182B345C006E0D21 /* mode_bg_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mode_bg_iphone@2x.png"; sourceTree = "<group>"; };
 		D8AB3F5F182B3958006E0D21 /* btn_curtain_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_curtain_iphone.png; sourceTree = "<group>"; };
 		D8AB3F60182B3958006E0D21 /* btn_curtain_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_curtain_iphone@2x.png"; sourceTree = "<group>"; };
 		D8AB3F61182B3958006E0D21 /* btn_light_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_light_iphone.png; sourceTree = "<group>"; };
@@ -157,8 +167,6 @@
 		D8AB3F6E182B3C91006E0D21 /* right_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_iphone@2x.png"; sourceTree = "<group>"; };
 		D8EEBD0B17BC7F8200200262 /* SHDetailContolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDetailContolView.h; sourceTree = "<group>"; };
 		D8EEBD0C17BC7F8200200262 /* SHDetailContolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDetailContolView.m; sourceTree = "<group>"; };
-		D8F056EB17BA8CE300DF2928 /* SHControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHControlViewController.h; sourceTree = "<group>"; };
-		D8F056EC17BA8CE300DF2928 /* SHControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHControlViewController.m; sourceTree = "<group>"; };
 		D8F056F817BAC95500DF2928 /* SHSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingsViewController.h; sourceTree = "<group>"; };
 		D8F056F917BAC95500DF2928 /* SHSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingsViewController.m; sourceTree = "<group>"; };
 		D8F5BEB017BDD10000D3500A /* SHMusicControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMusicControlView.h; sourceTree = "<group>"; };
@@ -224,18 +232,20 @@
 		D8421D0417BA853500C39DA0 /* SmartHouse */ = {
 			isa = PBXGroup;
 			children = (
+				D868030A1843962D0099407D /* SHControlViewController.h */,
+				D868030B1843962D0099407D /* SHControlViewController.m */,
 				D8421D0D17BA853500C39DA0 /* AppDelegate.h */,
 				D8421D0E17BA853500C39DA0 /* AppDelegate.m */,
 				D8421D1617BA853500C39DA0 /* SHLoginViewController.h */,
 				D8421D1717BA853500C39DA0 /* SHLoginViewController.m */,
+				D818FD801843E42500184026 /* SHStateViewController.h */,
+				D818FD811843E42500184026 /* SHStateViewController.m */,
 				D831DCAC1828C90500DCA400 /* SHRoomsListViewController.h */,
 				D831DCAD1828C90500DCA400 /* SHRoomsListViewController.m */,
 				D831DCC31828E54E00DCA400 /* SHRoomCell.h */,
 				D831DCC41828E54E00DCA400 /* SHRoomCell.m */,
 				D8AB3F58182B2599006E0D21 /* SHRoomDetailViewController.h */,
 				D8AB3F59182B2599006E0D21 /* SHRoomDetailViewController.m */,
-				D8F056EB17BA8CE300DF2928 /* SHControlViewController.h */,
-				D8F056EC17BA8CE300DF2928 /* SHControlViewController.m */,
 				D8F056F817BAC95500DF2928 /* SHSettingsViewController.h */,
 				D8F056F917BAC95500DF2928 /* SHSettingsViewController.m */,
 				D86B0D431819FD620098A755 /* SHSettingsNewViewController.h */,
@@ -248,8 +258,6 @@
 				D8EEBD0C17BC7F8200200262 /* SHDetailContolView.m */,
 				D8F5BEB017BDD10000D3500A /* SHMusicControlView.h */,
 				D8F5BEB117BDD10000D3500A /* SHMusicControlView.m */,
-				D82FECD61830717700CFBBDF /* SHStateViewController.h */,
-				D82FECD71830717700CFBBDF /* SHStateViewController.m */,
 				D8421D0517BA853500C39DA0 /* Supporting Files */,
 			);
 			path = SmartHouse;
@@ -272,6 +280,12 @@
 		D8F056E217BA8AAE00DF2928 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D818FD781843E42500184026 /* btn_network_in_iphone.png */,
+				D818FD791843E42500184026 /* btn_network_in_iphone@2x.png */,
+				D818FD7A1843E42500184026 /* btn_network_out_iphone.png */,
+				D818FD7B1843E42500184026 /* btn_network_out_iphone@2x.png */,
+				D818FD741843E0E600184026 /* btn_mode_iphone.png */,
+				D818FD751843E0E600184026 /* btn_mode_iphone@2x.png */,
 				D8337D0A182C7D5C00878FA2 /* mode_normal_iphone.png */,
 				D8337D0B182C7D5C00878FA2 /* mode_normal_iphone@2x.png */,
 				D8337D0C182C7D5C00878FA2 /* mode_selected_iphone.png */,
@@ -286,8 +300,6 @@
 				D8AB3F62182B3958006E0D21 /* btn_light_iphone@2x.png */,
 				D8AB3F63182B3958006E0D21 /* btn_music_iphone.png */,
 				D8AB3F64182B3958006E0D21 /* btn_music_iphone@2x.png */,
-				D8AB3F5B182B345C006E0D21 /* mode_bg_iphone.png */,
-				D8AB3F5C182B345C006E0D21 /* mode_bg_iphone@2x.png */,
 				D8AB3F4C182B17D8006E0D21 /* arrow_iphone.png */,
 				D8AB3F4D182B17D8006E0D21 /* arrow_iphone@2x.png */,
 				D8AB3F4E182B17D8006E0D21 /* line_iphone.png */,
@@ -395,10 +407,12 @@
 				D8AB3F52182B17D8006E0D21 /* arrow_iphone.png in Resources */,
 				D8AB3F6A182B3958006E0D21 /* btn_music_iphone@2x.png in Resources */,
 				D8421D0917BA853500C39DA0 /* InfoPlist.strings in Resources */,
+				D818FD7D1843E42500184026 /* btn_network_in_iphone@2x.png in Resources */,
 				D8AB3F53182B17D8006E0D21 /* arrow_iphone@2x.png in Resources */,
 				D8399C8118278A8E00385579 /* login_bg_iphone@2x.png in Resources */,
 				D8AB3F56182B17D8006E0D21 /* list_bg_iphone.png in Resources */,
 				D8399C86182793F300385579 /* input_box_iphone.png in Resources */,
+				D818FD761843E0E600184026 /* btn_mode_iphone.png in Resources */,
 				D8399C8C1827956400385579 /* btn_login_iphone_normal.png in Resources */,
 				D8399C921827962D00385579 /* input_box_focused_iphone.png in Resources */,
 				D8399C87182793F300385579 /* input_box_iphone@2x.png in Resources */,
@@ -408,22 +422,24 @@
 				D8337D10182C7D5C00878FA2 /* mode_selected_iphone.png in Resources */,
 				D8337D0E182C7D5C00878FA2 /* mode_normal_iphone.png in Resources */,
 				D8AB3F71182B3C91006E0D21 /* right_iphone.png in Resources */,
-				D8AB3F5E182B345C006E0D21 /* mode_bg_iphone@2x.png in Resources */,
 				D8399C8F1827956400385579 /* btn_login_iphone_pressed@2x.png in Resources */,
+				D818FD771843E0E600184026 /* btn_mode_iphone@2x.png in Resources */,
 				D81BD48F17C5F16800D96702 /* icon.png in Resources */,
 				D8399C8218278A8E00385579 /* login_box_iphone.png in Resources */,
 				D831DCC11828D29C00DCA400 /* network_disconnected_iphone.png in Resources */,
 				D831DCBB1828D29C00DCA400 /* btn_return_iphone.png in Resources */,
 				D81BD49117C5F16D00D96702 /* icon@2x.png in Resources */,
+				D818FD7F1843E42500184026 /* btn_network_out_iphone@2x.png in Resources */,
 				D8399C931827962D00385579 /* input_box_focused_iphone@2x.png in Resources */,
+				D818FD7E1843E42500184026 /* btn_network_out_iphone.png in Resources */,
 				D8AB3F67182B3958006E0D21 /* btn_light_iphone.png in Resources */,
 				D8AB3F57182B17D8006E0D21 /* list_bg_iphone@2x.png in Resources */,
 				D831DCBD1828D29C00DCA400 /* btn_setup_iphone.png in Resources */,
 				D8AB3F54182B17D8006E0D21 /* line_iphone.png in Resources */,
+				D818FD7C1843E42500184026 /* btn_network_in_iphone.png in Resources */,
 				D8AB3F65182B3958006E0D21 /* btn_curtain_iphone.png in Resources */,
 				D831DCBE1828D29C00DCA400 /* btn_setup_iphone@2x.png in Resources */,
 				D8AB3F6F182B3C91006E0D21 /* left_iphone.png in Resources */,
-				D8AB3F5D182B345C006E0D21 /* mode_bg_iphone.png in Resources */,
 				D831DCBF1828D29C00DCA400 /* network_connected_iphone.png in Resources */,
 				D8AB3F70182B3C91006E0D21 /* left_iphone@2x.png in Resources */,
 				D8AB3F55182B17D8006E0D21 /* line_iphone@2x.png in Resources */,
@@ -442,9 +458,8 @@
 				D8421D0B17BA853500C39DA0 /* main.m in Sources */,
 				D8AB3F5A182B2599006E0D21 /* SHRoomDetailViewController.m in Sources */,
 				D8421D0F17BA853500C39DA0 /* AppDelegate.m in Sources */,
-				D82FECD81830717700CFBBDF /* SHStateViewController.m in Sources */,
+				D818FD821843E42500184026 /* SHStateViewController.m in Sources */,
 				D8421D1817BA853500C39DA0 /* SHLoginViewController.m in Sources */,
-				D8F056EE17BA8CE300DF2928 /* SHControlViewController.m in Sources */,
 				D831DCAE1828C90500DCA400 /* SHRoomsListViewController.m in Sources */,
 				D8F056FB17BAC95600DF2928 /* SHSettingsViewController.m in Sources */,
 				D816387017BB0501008FAD0E /* SHReadConfigFile.m in Sources */,
@@ -454,6 +469,7 @@
 				D8EEBD0D17BC7F8200200262 /* SHDetailContolView.m in Sources */,
 				D8F5BEB217BDD10000D3500A /* SHMusicControlView.m in Sources */,
 				5214CB7817C068F500BDCEBC /* GCDAsyncSocket.m in Sources */,
+				D868030C1843962D0099407D /* SHControlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

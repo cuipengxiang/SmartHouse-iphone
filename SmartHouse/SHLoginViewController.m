@@ -100,23 +100,6 @@
     [self.loginButton setFrame:CGRectMake(64.5, 194.0, 193.0, 37.5)];
     [self.loginButton addTarget:self action:@selector(loginCheck) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginButton];
-    /*
-    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-        [self.imageView setFrame:CGRectMake(0.0, 0.0, 1024, 748)];
-        [self.imageView setImage:[UIImage imageNamed:@"login_bg"]];
-        [loginLabel setFrame:CGRectMake((1024 - loginLabel.frame.size.width)/2.0, 148, loginLabel.frame.size.width, loginLabel.frame.size.height)];
-        [self.loginButton setFrame:CGRectMake(327.5, 330, 370, 75)];
-        [self.passwordField setFrame:CGRectMake(332.5, 240, 360, 60)];
-        [self.loginbox setFrame:CGRectMake(275.5, 120.0, 473.0, 338.0)];
-    } else if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)){
-        [self.imageView setFrame:CGRectMake(0.0, 0.0, 768, 1004)];
-        [self.imageView setImage:[UIImage imageNamed:@"login_bg_p"]];
-        [loginLabel setFrame:CGRectMake((768 - loginLabel.frame.size.width)/2.0, 270, loginLabel.frame.size.width, loginLabel.frame.size.height)];
-        [self.loginButton setFrame:CGRectMake(200, 450, 368, 75)];
-        [self.passwordField setFrame:CGRectMake(204, 360, 360, 60)];
-        [self.loginbox setFrame:CGRectMake(147.5, 240.0, 473.0, 338.0)];
-    }
-    */
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
@@ -126,28 +109,6 @@
 - (BOOL)shouldAutorotate{
     return NO;
 }
-
-/*
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        [self.imageView setFrame:CGRectMake(0.0, 0.0, 1024, 748)];
-        [self.imageView setImage:[UIImage imageNamed:@"login_bg"]];
-        [loginLabel setFrame:CGRectMake((1024 - loginLabel.frame.size.width)/2.0, 148, loginLabel.frame.size.width, loginLabel.frame.size.height)];
-        [self.loginButton setFrame:CGRectMake(327.5, 330, 370, 75)];
-        [self.passwordField setFrame:CGRectMake(332.5, 240, 360, 60)];
-        [self.loginbox setFrame:CGRectMake(275.5, 120.0, 473.0, 338.0)];
-    } else if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)){
-        [self.imageView setFrame:CGRectMake(0.0, 0.0, 768, 1004)];
-        [self.imageView setImage:[UIImage imageNamed:@"login_bg_p"]];
-        [loginLabel setFrame:CGRectMake((768 - loginLabel.frame.size.width)/2.0, 270, loginLabel.frame.size.width, loginLabel.frame.size.height)];
-        [self.loginButton setFrame:CGRectMake(200, 450, 368, 75)];
-        [self.passwordField setFrame:CGRectMake(204, 360, 360, 60)];
-        [self.loginbox setFrame:CGRectMake(147.5, 240.0, 473.0, 338.0)];
-    }
-}
-*/
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {

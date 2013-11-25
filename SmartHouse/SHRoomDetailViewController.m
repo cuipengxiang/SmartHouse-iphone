@@ -8,7 +8,6 @@
 
 #import "SHRoomDetailViewController.h"
 
-#define MODE_BTN_BASE_TAG 1000
 
 @interface SHRoomDetailViewController ()
 
@@ -20,17 +19,22 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.socketQueue = dispatch_queue_create("socketQueue1", NULL);
         self.myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }
 
-
 - (void)setupNavigationBar:(float)width
 {
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"topbar_bg_iphone"] forBarMetrics:UIBarMetricsDefault];
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    [titleLabel setText:self.model.name];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:18.0]];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    [titleLabel sizeToFit];
     
     UIButton *leftButton = [[UIButton alloc] init];
     [leftButton setBackgroundImage:[UIImage imageNamed:@"btn_return_iphone"] forState:UIControlStateNormal];
@@ -47,7 +51,13 @@
     [rightButton sizeToFit];
     
     self.networkStateButton = [[UIButton alloc] init];
-    [self.networkStateButton setBackgroundImage:[UIImage imageNamed:@"network_connected_iphone"] forState:UIControlStateNormal];
+    NSString *networkImage;
+    if (self.myAppDelegate.networkState) {
+        networkImage = @"network_connected_iphone";
+    } else {
+        networkImage = @"network_disconnected_iphone";
+    }
+    [self.networkStateButton setBackgroundImage:[UIImage imageNamed:networkImage] forState:UIControlStateNormal];
     [self.networkStateButton sizeToFit];
     
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
@@ -59,6 +69,7 @@
     self.item = [[UINavigationItem alloc] init];
     [self.item setLeftBarButtonItem:leftBarButton];
     [self.item setRightBarButtonItems:rightButtons];
+    [self.item setTitleView:titleLabel];
     
     [self.navigationBar pushNavigationItem:self.item animated:NO];
     [self.view addSubview:self.navigationBar];
@@ -70,35 +81,42 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:1.0]];
     [self setupNavigationBar:320.0];
-	modeView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 69.0, 320.0, 156.0)];
-    [modeView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mode_bg_iphone"]]];
-    [self.view addSubview:modeView];
     
-    light = [[UIButton alloc] initWithFrame:CGRectMake(22.0, 263.0, 76.0, 81.0)];
-    curtain = [[UIButton alloc] initWithFrame:CGRectMake(122.0, 263.0, 76.0, 81.0)];
-    music = [[UIButton alloc] initWithFrame:CGRectMake(222.0, 263.0, 76.0, 81.0)];
+    mode = [[UIButton alloc] initWithFrame:CGRectMake(65.0, 184.0, 76.0, 81.0)];
+    light = [[UIButton alloc] initWithFrame:CGRectMake(179.0, 184.0, 76.0, 81.0)];
+    curtain = [[UIButton alloc] initWithFrame:CGRectMake(65.0, 303.0, 76.0, 81.0)];
+    music = [[UIButton alloc] initWithFrame:CGRectMake(179.0, 303.0, 76.0, 81.0)];
     [light setImage:[UIImage imageNamed:@"btn_light_iphone"] forState:UIControlStateNormal];
     [curtain setImage:[UIImage imageNamed:@"btn_curtain_iphone"] forState:UIControlStateNormal];
     [music setImage:[UIImage imageNamed:@"btn_music_iphone"] forState:UIControlStateNormal];
+    [mode setImage:[UIImage imageNamed:@"btn_mode_iphone"] forState:UIControlStateNormal];
     [self.view addSubview:light];
     [self.view addSubview:curtain];
     [self.view addSubview:music];
+    [self.view addSubview:mode];
     
-    left = [[UIButton alloc] initWithFrame:CGRectMake(19.0, 58.5, 21.0, 39.0)];
-    [left setImage:[UIImage imageNamed:@"left_iphone"] forState:UIControlStateNormal];
-    [left addTarget:self action:@selector(onScrollLeftClick:) forControlEvents:UIControlEventTouchUpInside];
-    right = [[UIButton alloc] initWithFrame:CGRectMake(280.0, 58.5, 21.0, 39.0)];
-    [right setImage:[UIImage imageNamed:@"right_iphone"] forState:UIControlStateNormal];
-    [right addTarget:self action:@selector(onScrollRightClick:) forControlEvents:UIControlEventTouchUpInside];
-    [modeView addSubview:left];
-    [modeView addSubview:right];
-    
-    modeScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(60.0, 48.0, 200.0, 60.0)];
-    [modeScroll setBackgroundColor:[UIColor clearColor]];
-    [modeView addSubview:modeScroll];
-    [self setupModeSelectBar:self.model];
-    
+    network = [[UIButton alloc] initWithFrame:CGRectMake(88.0, 74.0, 144.0, 36.0)];
+    NSString *imageName;
+    if ([self.myAppDelegate.host isEqualToString:self.myAppDelegate.host1]) {
+        imageName = @"btn_network_in_iphone";
+    } else {
+        imageName = @"btn_network_out_iphone";
+    }
+    [network setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [network addTarget:self action:@selector(onNetWorkButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:network];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self.myAppDelegate startQuery:self.model from:self];
+    NSString *networkImage;
+    if (self.myAppDelegate.networkState) {
+        networkImage = @"network_connected_iphone";
+    } else {
+        networkImage = @"network_disconnected_iphone";
+    }
+    [self.networkStateButton setBackgroundImage:[UIImage imageNamed:networkImage] forState:UIControlStateNormal];
 }
 
 - (void)onBackButtonClick
@@ -107,117 +125,44 @@
     }];
 }
 
-- (void)setupModeSelectBar:(SHRoomModel *)currentModel
+- (void)onSettingButtonClick
 {
-    self.currentModePage = 0;
-    [modeScroll setBounces:YES];
-    [modeScroll setShowsHorizontalScrollIndicator:NO];
-    [modeScroll setContentOffset:CGPointMake(0, 0)];
-    [modeScroll setPagingEnabled:YES];
     
-    [modeScroll setContentSize:CGSizeMake(200.0*self.model.modesNames.count, 60.0f)];
-    for (int i = 0; i < self.model.modesNames.count; i++) {
-        UIButton *modeButton = [[UIButton alloc] initWithFrame:CGRectMake(18.0 + i*200.0, 1.0, 164.0, 58.0)];
-        [modeButton setTitle:[self.model.modesNames objectAtIndex:i] forState:UIControlStateNormal];
-        [modeButton setTitle:[self.model.modesNames objectAtIndex:i] forState:UIControlStateSelected];
-        [modeButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 30, 0, 0)];
-        [modeButton setBackgroundImage:[UIImage imageNamed:@"mode_normal_iphone"] forState:UIControlStateNormal];
-        [modeButton setBackgroundImage:[UIImage imageNamed:@"mode_selected_iphone"] forState:UIControlStateSelected];
-        [modeButton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-        [modeButton setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0] forState:UIControlStateNormal];
-        [modeButton setTag:MODE_BTN_BASE_TAG + i];
-        [modeButton addTarget:self action:@selector(onModeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [modeScroll addSubview:modeButton];
-    }
 }
 
-- (void)onScrollLeftClick:(id)sender
+- (void)onNetWorkButtonClick
 {
-    self.currentModePage = modeScroll.contentOffset.x/200.0;
-    if (self.currentModePage > 0) {
-        self.currentModePage = self.currentModePage - 1;
-        CGPoint point = CGPointMake(200.0*self.currentModePage, 0.0);
-        [modeScroll setContentOffset:point animated:YES];
-    }
-}
-
-- (void)onScrollRightClick:(id)sender
-{
-    if ((int)modeScroll.contentOffset.x % 200 != 0) {
-        self.currentModePage = modeScroll.contentOffset.x/200.0 + 1;
+    NSString *imageName;
+    if ([self.myAppDelegate.host isEqualToString:self.myAppDelegate.host1]) {
+        imageName = @"btn_network_out_iphone";
+        self.myAppDelegate.host = self.myAppDelegate.host2;
     } else {
-        self.currentModePage = modeScroll.contentOffset.x/200.0;
+        imageName = @"btn_network_in_iphone";
+        self.myAppDelegate.host = self.myAppDelegate.host1;
     }
-    if (self.currentModePage < self.model.modesNames.count - 1) {
-        self.currentModePage = self.currentModePage + 1;
-        CGPoint point = CGPointMake(200.0*self.currentModePage, 0.0);
-        [modeScroll setContentOffset:point animated:YES];
-    }
+    [network setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [[NSUserDefaults standardUserDefaults] setObject:self.myAppDelegate.host forKey:@"host"];
 }
 
-- (void)onModeButtonClick:(UIButton *)button
+- (void)onModeButtonClick
 {
-    for (int i = MODE_BTN_BASE_TAG; i < MODE_BTN_BASE_TAG + self.model.modesNames.count; i++) {
-        [(UIButton *)[modeScroll viewWithTag:i] setSelected:NO];
-    }
-    [button setSelected:YES];
     
-    self.skipQuery = 1;
-    NSString *commandSend = [NSString stringWithFormat:@"%@\r\n", [self.model.modesCmds objectAtIndex:button.tag - MODE_BTN_BASE_TAG]];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^(void){
-        NSError *error;
-        GCDAsyncSocket *socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.socketQueue];
-        socket.command = commandSend;
-        [socket connectToHost:self.myAppDelegate.host onPort:self.myAppDelegate.port withTimeout:3.0 error:&error];
-    });
 }
 
-
-- (void)setCurrentMode:(NSString *)mode
+- (void)onCurtainButtonClick
 {
-    //跳过点击按钮后的第一次查询
-    if (self.skipQuery == 1) {
-        self.skipQuery = 0;
-        return;
-    }
     
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-        int btn_tag = -1;
-        for (int i = MODE_BTN_BASE_TAG; i < MODE_BTN_BASE_TAG + self.model.modesNames.count; i++) {
-            int location = [mode rangeOfString:[self.model.modeBacks objectAtIndex:i - MODE_BTN_BASE_TAG]].location;
-            
-            if (location == INT32_MAX) {
-                //[(UIButton *)[self.modeView viewWithTag:i] setSelected:NO];
-            } else {
-                //[(UIButton *)[self.modeView viewWithTag:i] setSelected:YES];
-                btn_tag = i;
-            }
-        }
-        if (btn_tag > 0) {
-            for (int i = MODE_BTN_BASE_TAG; i < MODE_BTN_BASE_TAG + self.model.modesNames.count;i++) {
-                if (i == btn_tag) {
-                    [(UIButton *)[modeScroll viewWithTag:i] setSelected:YES];
-                } else {
-                    [(UIButton *)[modeScroll viewWithTag:i] setSelected:NO];
-                }
-            }
-        }
-    });
 }
 
-
-- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+- (void)onLightButtonClick
 {
-    [sock writeData:[sock.command dataUsingEncoding:NSUTF8StringEncoding] withTimeout:3 tag:0];
+    
 }
 
-- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
+- (void)onMusicButtonClick
 {
-    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:1 tag:0];
-    [sock disconnect];
-    sock = nil;
+    
 }
-
 
 - (void)didReceiveMemoryWarning
 {

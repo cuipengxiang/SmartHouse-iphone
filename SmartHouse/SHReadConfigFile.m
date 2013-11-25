@@ -45,7 +45,13 @@
     NSArray *socketHostandPort = [[fileArray objectAtIndex:0] componentsSeparatedByString:@"|"];
     myDelegate.host1 = [socketHostandPort objectAtIndex:0];
     myDelegate.host2 = [socketHostandPort objectAtIndex:1];
-    myDelegate.host = myDelegate.host1;
+    NSString *hostDefault = [[NSUserDefaults standardUserDefaults] objectForKey:@"host"];
+    if ((hostDefault)&&([hostDefault isEqualToString:myDelegate.host1]||[hostDefault isEqualToString:myDelegate.host2])) {
+        myDelegate.host = hostDefault;
+    } else {
+        myDelegate.host = myDelegate.host1;
+        [[NSUserDefaults standardUserDefaults] setObject:myDelegate.host forKey:@"host"];
+    }
     myDelegate.port = [[socketHostandPort objectAtIndex:2] integerValue];
     NSArray *house = [[fileArray objectAtIndex:1] componentsSeparatedByString:@"|"];
     int roomsCount = [[house objectAtIndex:0] intValue];

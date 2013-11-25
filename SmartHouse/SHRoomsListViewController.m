@@ -30,6 +30,13 @@
     self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"topbar_bg_iphone"] forBarMetrics:UIBarMetricsDefault];
     
+    UILabel *titleLabel = [[UILabel alloc] init];
+    [titleLabel setText:@"房间"];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:18.0]];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    [titleLabel sizeToFit];
+    
     UIButton *leftButton = [[UIButton alloc] init];
     [leftButton setBackgroundImage:[UIImage imageNamed:@"btn_return_iphone"] forState:UIControlStateNormal];
     [leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -45,7 +52,13 @@
     [rightButton sizeToFit];
     
     self.networkStateButton = [[UIButton alloc] init];
-    [self.networkStateButton setBackgroundImage:[UIImage imageNamed:@"network_connected_iphone"] forState:UIControlStateNormal];
+    NSString *networkImage;
+    if (self.myAppDelegate.networkState) {
+        networkImage = @"network_connected_iphone";
+    } else {
+        networkImage = @"network_disconnected_iphone";
+    }
+    [self.networkStateButton setBackgroundImage:[UIImage imageNamed:networkImage] forState:UIControlStateNormal];
     [self.networkStateButton sizeToFit];
     
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
@@ -57,6 +70,7 @@
     self.item = [[UINavigationItem alloc] init];
     [self.item setLeftBarButtonItem:leftBarButton];
     [self.item setRightBarButtonItems:rightButtons];
+    [self.item setTitleView:titleLabel];
     
     [self.navigationBar pushNavigationItem:self.item animated:NO];
     [self.view addSubview:self.navigationBar];
@@ -77,13 +91,22 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView reloadData];
     [self.view addSubview:self.tableView];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self.myAppDelegate startQuery:nil from:self];
+    NSString *networkImage;
+    if (self.myAppDelegate.networkState) {
+        networkImage = @"network_connected_iphone";
+    } else {
+        networkImage = @"network_disconnected_iphone";
+    }
+    [self.networkStateButton setBackgroundImage:[UIImage imageNamed:networkImage] forState:UIControlStateNormal];
 }
 
 - (void)onBackButtonClick
 {
-    //[self.backController willAnimateRotationToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation] duration:1.0];
     [self dismissViewControllerAnimated:YES completion:^(void){
     }];
 }
