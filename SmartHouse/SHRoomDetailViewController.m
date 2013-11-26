@@ -7,7 +7,7 @@
 //
 
 #import "SHRoomDetailViewController.h"
-
+#import "SHModeSelectViewController.h"
 
 @interface SHRoomDetailViewController ()
 
@@ -90,6 +90,10 @@
     [curtain setImage:[UIImage imageNamed:@"btn_curtain_iphone"] forState:UIControlStateNormal];
     [music setImage:[UIImage imageNamed:@"btn_music_iphone"] forState:UIControlStateNormal];
     [mode setImage:[UIImage imageNamed:@"btn_mode_iphone"] forState:UIControlStateNormal];
+    [light addTarget:self action:@selector(onLightButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [curtain addTarget:self action:@selector(onCurtainButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [music addTarget:self action:@selector(onMusicButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [mode addTarget:self action:@selector(onModeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:light];
     [self.view addSubview:curtain];
     [self.view addSubview:music];
@@ -146,7 +150,10 @@
 
 - (void)onModeButtonClick
 {
-    
+    SHModeSelectViewController *controller = [[SHModeSelectViewController alloc] initWithNibName:nil bundle:nil];
+    controller.model = self.model;
+    [self presentViewController:controller animated:YES completion:^(void){
+    }];
 }
 
 - (void)onCurtainButtonClick

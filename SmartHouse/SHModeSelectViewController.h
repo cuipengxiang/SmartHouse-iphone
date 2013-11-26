@@ -12,6 +12,11 @@
 #import "SHRoomModel.h"
 
 @interface SHModeSelectViewController : SHStateViewController
+{
+    UIScrollView *scrollView;
+    UIButton *scrollLeft;
+    UIButton *scrollRight;
+}
 
 @property(nonatomic, strong)AppDelegate *myAppDelegate;
 @property (nonatomic, strong)SHRoomModel *model;
