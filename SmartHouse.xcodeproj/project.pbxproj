@@ -62,6 +62,7 @@
 		D868030C1843962D0099407D /* SHControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D868030B1843962D0099407D /* SHControlViewController.m */; };
 		D868030F1843967F0099407D /* SHModeSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D868030E1843967F0099407D /* SHModeSelectViewController.m */; };
 		D86B0D451819FD620098A755 /* SHSettingsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D86B0D441819FD620098A755 /* SHSettingsNewViewController.m */; };
+		D874C07018477B4200049E70 /* SHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D874C06F18477B4200049E70 /* SHDetailViewController.m */; };
 		D8AB3F52182B17D8006E0D21 /* arrow_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F4C182B17D8006E0D21 /* arrow_iphone.png */; };
 		D8AB3F53182B17D8006E0D21 /* arrow_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F4D182B17D8006E0D21 /* arrow_iphone@2x.png */; };
 		D8AB3F54182B17D8006E0D21 /* line_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D8AB3F4E182B17D8006E0D21 /* line_iphone.png */; };
@@ -154,6 +155,8 @@
 		D868030E1843967F0099407D /* SHModeSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHModeSelectViewController.m; sourceTree = "<group>"; };
 		D86B0D431819FD620098A755 /* SHSettingsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingsNewViewController.h; sourceTree = "<group>"; };
 		D86B0D441819FD620098A755 /* SHSettingsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingsNewViewController.m; sourceTree = "<group>"; };
+		D874C06E18477B4200049E70 /* SHDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDetailViewController.h; sourceTree = "<group>"; };
+		D874C06F18477B4200049E70 /* SHDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDetailViewController.m; sourceTree = "<group>"; };
 		D8AB3F4C182B17D8006E0D21 /* arrow_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_iphone.png; sourceTree = "<group>"; };
 		D8AB3F4D182B17D8006E0D21 /* arrow_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_iphone@2x.png"; sourceTree = "<group>"; };
 		D8AB3F4E182B17D8006E0D21 /* line_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line_iphone.png; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				D8AB3F59182B2599006E0D21 /* SHRoomDetailViewController.m */,
 				D868030D1843967F0099407D /* SHModeSelectViewController.h */,
 				D868030E1843967F0099407D /* SHModeSelectViewController.m */,
+				D874C06E18477B4200049E70 /* SHDetailViewController.h */,
+				D874C06F18477B4200049E70 /* SHDetailViewController.m */,
 				D8F056F817BAC95500DF2928 /* SHSettingsViewController.h */,
 				D8F056F917BAC95500DF2928 /* SHSettingsViewController.m */,
 				D86B0D431819FD620098A755 /* SHSettingsNewViewController.h */,
@@ -476,6 +481,7 @@
 				D831DCAE1828C90500DCA400 /* SHRoomsListViewController.m in Sources */,
 				D868030F1843967F0099407D /* SHModeSelectViewController.m in Sources */,
 				D8F056FB17BAC95600DF2928 /* SHSettingsViewController.m in Sources */,
+				D874C07018477B4200049E70 /* SHDetailViewController.m in Sources */,
 				D816387017BB0501008FAD0E /* SHReadConfigFile.m in Sources */,
 				D86B0D451819FD620098A755 /* SHSettingsNewViewController.m in Sources */,
 				D831DCC51828E54E00DCA400 /* SHRoomCell.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "SHRoomDetailViewController.h"
 #import "SHModeSelectViewController.h"
+#import "SHDetailViewController.h"
 
 @interface SHRoomDetailViewController ()
 
@@ -90,9 +91,12 @@
     [curtain setImage:[UIImage imageNamed:@"btn_curtain_iphone"] forState:UIControlStateNormal];
     [music setImage:[UIImage imageNamed:@"btn_music_iphone"] forState:UIControlStateNormal];
     [mode setImage:[UIImage imageNamed:@"btn_mode_iphone"] forState:UIControlStateNormal];
-    [light addTarget:self action:@selector(onLightButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [curtain addTarget:self action:@selector(onCurtainButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [music addTarget:self action:@selector(onMusicButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [light setTag:2000];
+    [curtain setTag:2001];
+    [music setTag:2002];
+    [light addTarget:self action:@selector(onDetailButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [curtain addTarget:self action:@selector(onDetailButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [music addTarget:self action:@selector(onDetailButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [mode addTarget:self action:@selector(onModeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:light];
     [self.view addSubview:curtain];
@@ -156,19 +160,10 @@
     }];
 }
 
-- (void)onCurtainButtonClick
+- (void)onDetailButtonClick:(UIButton *)button
 {
-    
-}
-
-- (void)onLightButtonClick
-{
-    
-}
-
-- (void)onMusicButtonClick
-{
-    
+    SHDetailViewController *detailer = [[SHDetailViewController alloc] initWithType:button.tag];
+    [self presentViewController:detailer animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

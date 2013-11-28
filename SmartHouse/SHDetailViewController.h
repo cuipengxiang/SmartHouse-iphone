@@ -1,23 +1,20 @@
 //
-//  SHRoomDetailViewController.h
+//  SHDetailViewController.h
 //  SmartHouse
 //
-//  Created by Roc on 13-11-7.
+//  Created by Roc on 13-11-28.
 //  Copyright (c) 2013年 Roc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "SHRoomModel.h"
-#import "AppDelegate.h"
 #import "SHStateViewController.h"
+#import "AppDelegate.h"
+#import "SHRoomModel.h"
 
-@interface SHRoomDetailViewController : SHStateViewController
+@interface SHDetailViewController : SHStateViewController
 {
-    UIButton *light;
-    UIButton *curtain;
-    UIButton *music;
-    UIButton *mode;
-    UIButton *network;
+    UIScrollView *scrollView;
+    int detailType;
 }
 
 @property(nonatomic, strong)AppDelegate *myAppDelegate;
@@ -27,12 +24,9 @@
 @property(nonatomic, strong)UIBarButtonItem *networkBarButton;
 @property(nonatomic, strong)UINavigationItem *item;
 
+- (id)initWithType:(int)type;
 - (void)setupNavigationBar:(float)width;
 - (void)onBackButtonClick;
 - (void)onSettingButtonClick;
-- (void)onDetailButtonClick:(UIButton *)button;
-- (void)onModeButtonClick;
-- (void)onNetWorkButtonClick;
-
 
 @end
