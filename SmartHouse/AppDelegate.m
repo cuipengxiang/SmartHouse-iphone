@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SHRoomDetailViewController.h"
+#import "SHModeSelectViewController.h"
 
 @implementation AppDelegate
 
@@ -109,8 +109,9 @@
 {
     NSData *strData = [data subdataWithRange:NSMakeRange(0, [data length] - 2)];
     NSString *msg = [[NSString alloc] initWithData:strData encoding:NSUTF8StringEncoding];
-    if ((self.mainController)&&([self.mainController isKindOfClass:[SHRoomDetailViewController class]])) {
-        //[(SHRoomDetailViewController *)self.mainController setCurrentMode:msg];
+
+    if ((self.mainController)&&([self.mainController isKindOfClass:[SHModeSelectViewController class]])) {
+        [(SHModeSelectViewController *)self.mainController setCurrentMode:msg];
     }
     [sock disconnect];
 }
