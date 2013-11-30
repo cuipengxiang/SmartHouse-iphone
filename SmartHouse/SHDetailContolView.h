@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "SHControlViewController.h"
+#import "SHDetailViewController.h"
 #import "GCDAsyncSocket.h"
 
 @interface SHDetailContolView : UIView<GCDAsyncSocketDelegate>{
@@ -20,11 +20,11 @@
 @property (nonatomic, strong)AppDelegate *myDelegate;
 @property (nonatomic, strong)NSMutableArray *buttonNames;
 @property (nonatomic, strong)NSMutableArray *buttonCmds;
-@property (nonatomic, retain)SHControlViewController *controller;
+@property (nonatomic, retain)SHDetailViewController *controller;
 @property (nonatomic)int type;
 
 - (id)initWithFrame:(CGRect)frame andType:(int)type;
-- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andType:(int)type andController:(SHControlViewController *)controller;
+- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andType:(int)type andController:(SHDetailViewController *)controller;
 - (void)setButtons:(NSMutableArray *)names andCmd:(NSMutableArray *)cmds;
 - (void)onButtonClick:(UIButton *)button;
 

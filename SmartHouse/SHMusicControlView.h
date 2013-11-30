@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "SHControlViewController.h"
+#import "SHDetailViewController.h"
 #import "GCDAsyncSocket.h"
 
 @interface SHMusicControlView : UIView
@@ -16,9 +16,9 @@
 @property (nonatomic ,strong)AppDelegate *myDelegate;
 @property (nonatomic, strong)NSMutableArray *buttonNames;
 @property (nonatomic, strong)NSMutableArray *buttonCmds;
-@property (nonatomic, retain)SHControlViewController *controller;
+@property (nonatomic, retain)SHDetailViewController *controller;
 
-- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andController:(SHControlViewController *)controller;
+- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andController:(SHDetailViewController *)controller;
 - (void)setButtons:(NSMutableArray *)names andCmd:(NSMutableArray *)cmds;
 - (void)onButtonClick:(UIButton *)button;
 

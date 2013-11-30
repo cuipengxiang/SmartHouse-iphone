@@ -7,6 +7,8 @@
 //
 
 #import "SHDetailViewController.h"
+#import "SHDetailContolView.h"
+#import "SHMusicControlView.h"
 
 @interface SHDetailViewController ()
 
@@ -18,7 +20,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        self.socketQueue = dispatch_queue_create("socketQueue2", NULL);
+        self.myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -28,6 +31,8 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         detailType = type;
+        self.socketQueue = dispatch_queue_create("socketQueue2", NULL);
+        self.myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -100,17 +105,65 @@
 {
     [super viewDidLoad];
 	[self setupNavigationBar:320.0];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_detail_iphone"]]];
+    
+    detailView = [[UIScrollView alloc] initWithFrame:CGRectMake(5.0, 54.0, 310.0, App_Height - 64.0)];
+    [detailView setBackgroundColor:[UIColor clearColor]];
+    [detailView setShowsHorizontalScrollIndicator:NO];
+    [detailView setShowsVerticalScrollIndicator:NO];
+    [self.view addSubview:detailView];
+    
+    switch (detailType) {
+        case LIGHT_TAG:
+            [detailView setContentSize:CGSizeMake(310.0, self.model.lightNames.count*146.0 - 15.0)];
+            for (int i = 0; i < self.model.lightNames.count; i++) {
+                SHDetailContolView *detailViewPanel = [[SHDetailContolView alloc] initWithFrame:CGRectMake(27.0, i*146.0, 256.0, 126.0)andTitle:[self.model.lightNames objectAtIndex:i] andType:LIGHT_TAG andController:self];
+                [detailViewPanel setButtons:[self.model.lightBtns objectAtIndex:i] andCmd:[self.model.lightCmds objectAtIndex:i]];
+                [detailView addSubview:detailViewPanel];
+            }
+            break;
+        case CURTAIN_TAG:
+            [detailView setContentSize:CGSizeMake(310.0, self.model.curtainNames.count*146.0 - 15.0)];
+            for (int i = 0; i < self.model.curtainNames.count; i++) {
+                SHDetailContolView *detailViewPanel = [[SHDetailContolView alloc] initWithFrame:CGRectMake(27.0, i*146.0, 256.0, 126.0)andTitle:[self.model.curtainNames objectAtIndex:i] andType:CURTAIN_TAG andController:self];
+                [detailViewPanel setButtons:[self.model.curtainBtns objectAtIndex:i] andCmd:[self.model.curtainCmds objectAtIndex:i]];
+                [detailView addSubview:detailViewPanel];
+            }
+            break;
+            
+        case MUSIC_TAG:
+            [detailView setContentSize:CGSizeMake(310.0, self.model.musicCmds.count*275.0 - 5.0)];
+            for (int i = 0; i < self.model.musicNames.count; i++) {
+                SHMusicControlView *detailViewPanel = [[SHMusicControlView alloc] initWithFrame:CGRectMake(3.5, i*275.0, 303.0, 265.0) andTitle:[self.model.musicNames objectAtIndex:i] andController:self];
+                [detailViewPanel setButtons:[self.model.musicBtns objectAtIndex:i] andCmd:[self.model.musicCmds objectAtIndex:i]];
+                [detailView addSubview:detailViewPanel];
+            }
+            break;
+    }
 }
 
 - (void)onBackButtonClick
 {
-    
+    [self dismissViewControllerAnimated:YES completion:^(void){
+    }];
 }
 
 - (void)onSettingButtonClick
 {
     
+}
+
+
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+{
+    [sock writeData:[sock.command dataUsingEncoding:NSUTF8StringEncoding] withTimeout:3 tag:0];
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
+{
+    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:1 tag:0];
+    [sock disconnect];
+    sock = nil;
 }
 
 - (void)didReceiveMemoryWarning

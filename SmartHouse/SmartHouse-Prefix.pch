@@ -14,3 +14,6 @@
 #endif
 
 #define App_Height [[UIScreen mainScreen] applicationFrame].size.height
+#define LIGHT_TAG 2000
+#define CURTAIN_TAG 2001
+#define MUSIC_TAG 2002

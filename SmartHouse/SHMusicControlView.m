@@ -13,7 +13,7 @@
 
 @implementation SHMusicControlView
 
-- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andController:(SHControlViewController *)controller
+- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andController:(SHDetailViewController *)controller
 {
     self = [self initWithFrame:frame];
     if (self) {
@@ -22,10 +22,12 @@
         UILabel *titleLabel = [[UILabel alloc] init];
         [titleLabel setText:titleString];
         [titleLabel setFont:[UIFont boldSystemFontOfSize:16.0f]];
+        [titleLabel setShadowColor:[UIColor blackColor]];
+        [titleLabel setShadowOffset:CGSizeMake(0, 1)];
         [titleLabel setTextColor:[UIColor whiteColor]];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel sizeToFit];
-        [titleLabel setFrame:CGRectMake((frame.size.width - titleLabel.frame.size.width)/2, 20, titleLabel.frame.size.width, titleLabel.frame.size.height)];
+        [titleLabel setFrame:CGRectMake((frame.size.width - titleLabel.frame.size.width)/2, 21.0, titleLabel.frame.size.width, titleLabel.frame.size.height)];
         [self addSubview:titleLabel];
     }
     return self;
@@ -36,7 +38,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         UIImageView *background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-        [background setImage:[UIImage imageNamed:@"bg_music"]];
+        [background setImage:[UIImage imageNamed:@"music_ctrl_panel"]];
         [self addSubview:background];
     }
     return self;
@@ -49,7 +51,7 @@
     
     for (int i = 0; i < 5; i++) {
         UIButton *button = [[UIButton alloc] init];
-        [button setFrame:CGRectMake(30 + i * 65, 62, 55, 55)];
+        [button setFrame:CGRectMake(17.5 + i * 55.0, 72.0, 48.0, 48.0)];
         [button setTag:BUTTON_BASE_TAG + i];
         [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"music_control%d",i]] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -57,12 +59,12 @@
     }
     for (int i = 5; i < self.buttonNames.count; i++) {
         UIButton *button = [[UIButton alloc] init];
-        [button setFrame:CGRectMake(25.5 + (i-5)%4*83, 150 + (i-5)/4*40, 75, 25)];
+        [button setFrame:CGRectMake(17.5 + (i-5)%4*69.0, 150.0 + (i-5)/4*31.0, 61.0, 21.0)];
         [button setTag:BUTTON_BASE_TAG + i];
         [button setTitle:[self.buttonNames objectAtIndex:i] forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
         [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"btn_music_control"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"btn_bg_music"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }

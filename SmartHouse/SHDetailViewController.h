@@ -10,13 +10,15 @@
 #import "SHStateViewController.h"
 #import "AppDelegate.h"
 #import "SHRoomModel.h"
+#import "GCDAsyncSocket.h"
 
-@interface SHDetailViewController : SHStateViewController
+@interface SHDetailViewController : SHStateViewController<GCDAsyncSocketDelegate>
 {
-    UIScrollView *scrollView;
+    UIScrollView *detailView;
     int detailType;
 }
 
+@property (nonatomic)dispatch_queue_t socketQueue;
 @property(nonatomic, strong)AppDelegate *myAppDelegate;
 @property (nonatomic, strong)SHRoomModel *model;
 @property(nonatomic, strong)UINavigationBar *navigationBar;

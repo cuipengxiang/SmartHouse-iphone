@@ -13,7 +13,7 @@
 
 @implementation SHDetailContolView
 
-- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andType:(int)type andController:(SHControlViewController *)controller
+- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)titleString andType:(int)type andController:(SHDetailViewController *)controller
 {
     self = [self initWithFrame:frame andType:type];
     if (self) {
@@ -22,10 +22,12 @@
         UILabel *titleLabel = [[UILabel alloc] init];
         [titleLabel setText:titleString];
         [titleLabel setFont:[UIFont boldSystemFontOfSize:16.0f]];
+        [titleLabel setShadowColor:[UIColor blackColor]];
+        [titleLabel setShadowOffset:CGSizeMake(0, 1)];
         [titleLabel setTextColor:[UIColor whiteColor]];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel sizeToFit];
-        [titleLabel setFrame:CGRectMake((frame.size.width - titleLabel.frame.size.width)/2, 19, titleLabel.frame.size.width, titleLabel.frame.size.height)];
+        [titleLabel setFrame:CGRectMake((frame.size.width - titleLabel.frame.size.width)/2, 22.0, titleLabel.frame.size.width, titleLabel.frame.size.height)];
         [self addSubview:titleLabel];
     }
     return self;
@@ -37,14 +39,13 @@
     if (self) {
         UIImageView *background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         self.type = type;
-        if (type == 0) {
-            [background setImage:[UIImage imageNamed:@"bg_light"]];
-        } else {
-            [background setImage:[UIImage imageNamed:@"bg_curtain"]];
+        if (type == LIGHT_TAG) {
+            [background setImage:[UIImage imageNamed:@"light_ctrl_panel"]];
+        } else if (type == CURTAIN_TAG) {
+            [background setImage:[UIImage imageNamed:@"curtain_ctrl_panel"]];
         }
         [self addSubview:background];
-        self.socketQueue = dispatch_queue_create("socketQueue2", NULL);
-
+        self.socketQueue = dispatch_queue_create("socketQueue3", NULL);
     }
     return self;
 }
@@ -56,28 +57,28 @@
     if (names.count == 4) {
         for (int i = 0; i < names.count; i++) {
             UIButton *button = [[UIButton alloc] init];
-            [button setFrame:CGRectMake(20 + i * 88, 72, 76, 36)];
+            [button setFrame:CGRectMake(15.5 + i*58.0, 70.0, 51, 26)];
             [button setTag:BUTTON_BASE_TAG + i];
             if (i < 2) {
                 [button setTitle:[names objectAtIndex:i] forState:UIControlStateNormal];
-                [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+                [button.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
                 [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0] forState:UIControlStateNormal];
-                [button setBackgroundImage:[UIImage imageNamed:@"btn_light_control"] forState:UIControlStateNormal];
+                [button setBackgroundImage:[UIImage imageNamed:@"btn_bg"] forState:UIControlStateNormal];
                 [button addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             } else if (i == 2) {
-                if (self.type == 0) {
-                    [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"light_%d",i]] forState:UIControlStateNormal];
+                if (self.type == LIGHT_TAG) {
+                    [button setBackgroundImage:[UIImage imageNamed:@"btn_light_1"] forState:UIControlStateNormal];
                 } else {
-                    [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"curtain_%d",i]] forState:UIControlStateNormal];
+                    [button setBackgroundImage:[UIImage imageNamed:@"btn_curtain_1"] forState:UIControlStateNormal];
                 }
                 [button addTarget:self action:@selector(onButtonDown:) forControlEvents:UIControlEventTouchDown];
                 [button addTarget:self action:@selector(onButtonUp:) forControlEvents:UIControlEventTouchUpInside];
                 [button addTarget:self action:@selector(onButtonUp:) forControlEvents:UIControlEventTouchUpOutside];
             } else if (i == 3) {
-                if (self.type == 0) {
-                    [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"light_%d",i]] forState:UIControlStateNormal];
+                if (self.type == LIGHT_TAG) {
+                    [button setBackgroundImage:[UIImage imageNamed:@"btn_light_2"] forState:UIControlStateNormal];
                 } else {
-                    [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"curtain_%d",i]] forState:UIControlStateNormal];
+                    [button setBackgroundImage:[UIImage imageNamed:@"btn_curtain_2"] forState:UIControlStateNormal];
                 }
                 [button addTarget:self action:@selector(onButtonDown:) forControlEvents:UIControlEventTouchDown];
                 [button addTarget:self action:@selector(onButtonUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -88,25 +89,25 @@
     } else if (names.count == 2) {
         for (int i = 0; i < names.count; i++) {
             UIButton *button = [[UIButton alloc] init];
-            [button setFrame:CGRectMake(100 + i * 104, 72, 76, 36)];
+            [button setFrame:CGRectMake(55.0 + i*95.0, 70.0, 51, 26)];
             [button setTitle:[names objectAtIndex:i] forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
             [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0] forState:UIControlStateNormal];
             [button setTag:BUTTON_BASE_TAG + i];
-            [button setBackgroundImage:[UIImage imageNamed:@"btn_light_control"] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"btn_bg"] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
         }
     } else if (names.count == 3) {
         for (int i = 0; i < names.count; i++) {
             UIButton *button = [[UIButton alloc] init];
-            [button setFrame:CGRectMake(58 + i * 94, 72, 76, 36)];
+            [button setFrame:CGRectMake(20 + i*82.5, 70.0, 51, 26)];
             [button setTag:BUTTON_BASE_TAG + i];
             
             [button setTitle:[names objectAtIndex:i] forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
             [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0] forState:UIControlStateNormal];
-            [button setBackgroundImage:[UIImage imageNamed:@"btn_light_control"] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"btn_bg"] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(onButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
         }
