@@ -25,6 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg_iphone"]]];
+    self.settingbox = [[UIView alloc] initWithFrame:CGRectMake(42.0, 40.0, 236.0, 254.0)];
+    [self.settingbox setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"setup_box"]]];
     
     self.isKeybroadShowing = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -39,41 +42,41 @@
     self.titleLabel = [[UILabel alloc] init];
     [self.titleLabel setBackgroundColor:[UIColor clearColor]];
     [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.titleLabel setFont:[UIFont boldSystemFontOfSize:30.0]];
+    [self.titleLabel setFont:[UIFont boldSystemFontOfSize:16.0]];
     [self.titleLabel setTextColor:[UIColor colorWithRed:0.694 green:0.278 blue:0.020 alpha:1.0]];
     [self.titleLabel setText:@"密码设置"];
     [self.titleLabel sizeToFit];
-    [self.titleLabel setFrame:CGRectMake((473 - self.titleLabel.frame.size.width)/2.0, 28, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height)];
+    [self.titleLabel setFrame:CGRectMake((236.0 - self.titleLabel.frame.size.width)/2.0, 15.0, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height)];
     
-    self.oldpassword = [[UITextField alloc] initWithFrame:CGRectMake(55, 120, 363, 60)];
+    self.oldpassword = [[UITextField alloc] initWithFrame:CGRectMake(24.0, 60.0, 188.0, 31.5)];
     [self.oldpassword setSecureTextEntry:YES];
     [self.oldpassword setPlaceholder:@"输入旧密码"];
-    [self.oldpassword setFont:[UIFont systemFontOfSize:20.0]];
+    [self.oldpassword setFont:[UIFont systemFontOfSize:14.0]];
     [self.oldpassword setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [self.oldpassword setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     [self.oldpassword setTextAlignment:NSTextAlignmentCenter];
     [self.oldpassword setDelegate:self];
-    [self.oldpassword setBackground:[UIImage imageNamed:@"input_box"]];
+    [self.oldpassword setBackground:[UIImage imageNamed:@"input_box_iphone"]];
     
-    self.newpassword = [[UITextField alloc] initWithFrame:CGRectMake(55, 200, 363, 60)];
+    self.newpassword = [[UITextField alloc] initWithFrame:CGRectMake(24.0, 103.5, 188.0, 31.5)];
     [self.newpassword setSecureTextEntry:YES];
     [self.newpassword setPlaceholder:@"输入新密码"];
-    [self.newpassword setFont:[UIFont systemFontOfSize:20.0]];
+    [self.newpassword setFont:[UIFont systemFontOfSize:14.0]];
     [self.newpassword setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [self.newpassword setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     [self.newpassword setTextAlignment:NSTextAlignmentCenter];
     [self.newpassword setDelegate:self];
-    [self.newpassword setBackground:[UIImage imageNamed:@"input_box"]];
+    [self.newpassword setBackground:[UIImage imageNamed:@"input_box_iphone"]];
     
-    self.newpassword_again = [[UITextField alloc] initWithFrame:CGRectMake(55, 280, 363, 60)];
+    self.newpassword_again = [[UITextField alloc] initWithFrame:CGRectMake(24.0, 147.0, 188.0, 31.5)];
     [self.newpassword_again setSecureTextEntry:YES];
     [self.newpassword_again setPlaceholder:@"再次输入新密码"];
-    [self.newpassword_again setFont:[UIFont systemFontOfSize:20.0]];
+    [self.newpassword_again setFont:[UIFont systemFontOfSize:14.0]];
     [self.newpassword_again setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [self.newpassword_again setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     [self.newpassword_again setTextAlignment:NSTextAlignmentCenter];
     [self.newpassword_again setDelegate:self];
-    [self.newpassword_again setBackground:[UIImage imageNamed:@"input_box"]];
+    [self.newpassword_again setBackground:[UIImage imageNamed:@"input_box_iphone"]];
     
     self.commit = [[UIButton alloc] init];
     [self.commit setBackgroundImage:[UIImage imageNamed:@"btn_commit_normal"] forState:UIControlStateNormal];
@@ -85,19 +88,8 @@
     [self.cancel setBackgroundImage:[UIImage imageNamed:@"btn_cancel_pressed"] forState:UIControlStateHighlighted];
     [self.cancel addTarget:self action:@selector(onBackButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.settingbox = [[UIView alloc] init];
-    [self.settingbox setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"setup_box"]]];
-    
-    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg"]]];
-        [self.settingbox setFrame:CGRectMake(275.5, 120.0, 473.0, 508.0)];
-    } else {
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg_p"]]];
-        [self.settingbox setFrame:CGRectMake(147.5, 220.0, 473.0, 508.0)];
-    }
-    
-    [self.commit setFrame:CGRectMake(238.0f, 380.0f, 191.0f, 74.0f)];
-    [self.cancel setFrame:CGRectMake(44.0f, 380.0f, 191.0f, 74.0f)];
+    [self.commit setFrame:CGRectMake(121.0f, 195.0f, 95.0f, 37.0f)];
+    [self.cancel setFrame:CGRectMake(20.0f, 195.0f, 95.0f, 37.0f)];
     [self.settingbox addSubview:self.titleLabel];
     [self.settingbox addSubview:self.oldpassword];
     [self.settingbox addSubview:self.newpassword];
@@ -272,30 +264,6 @@
         [self.settingbox setFrame:CGRectMake(275.5, 120.0, 473.0, 508.0)];
     }
 }
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-    return YES;
-}
-
-- (BOOL)shouldAutorotate{
-    return YES;
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        if (self.isKeybroadShowing) {
-            [self.settingbox setFrame:CGRectMake(275.5, -50.0, 473.0, 508.0)];
-        } else {
-            [self.settingbox setFrame:CGRectMake(275.5, 120.0, 473.0, 508.0)];
-        }
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg"]]];
-    } else {
-        [self.settingbox setFrame:CGRectMake(147.5, 220.0, 473.0, 508.0)];
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg_p"]]];
-    }
-}
-
 
 - (void)didReceiveMemoryWarning
 {

@@ -32,7 +32,7 @@
 
 - (void)setupNavigationBar:(float)width;
 - (void)onBackButtonClick;
-- (void)onSettingButtonClick;
+- (void)onSettingsButtonClick;
 - (void)onScrollLeftClick;
 - (void)onScrollRightClick;
 - (void)setCurrentMode:(NSString *)mode;

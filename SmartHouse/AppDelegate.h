@@ -28,7 +28,6 @@
 @property(strong, nonatomic) SHLoginViewController *viewController;
 @property(strong, nonatomic) SHRoomModel *model;
 @property(nonatomic, strong) NSThread *myModeThread;
-@property BOOL needquery;
 @property BOOL networkState;
 
 - (void)sendCommand:(NSString *)command;

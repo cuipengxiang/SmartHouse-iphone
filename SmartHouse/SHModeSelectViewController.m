@@ -7,6 +7,7 @@
 //
 
 #import "SHModeSelectViewController.h"
+#import "SHSettingsNewViewController.h"
 
 #define MODE_BTN_BASE_TAG 1000
 
@@ -225,9 +226,11 @@
     }];
 }
 
-- (void)onSettingButtonClick
+- (void)onSettingsButtonClick
 {
-    
+    SHSettingsNewViewController *controller = [[SHSettingsNewViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:controller animated:YES completion:^(void){
+    }];
 }
 
 

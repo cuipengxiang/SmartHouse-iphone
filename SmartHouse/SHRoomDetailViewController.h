@@ -29,7 +29,7 @@
 
 - (void)setupNavigationBar:(float)width;
 - (void)onBackButtonClick;
-- (void)onSettingButtonClick;
+- (void)onSettingsButtonClick;
 - (void)onDetailButtonClick:(UIButton *)button;
 - (void)onModeButtonClick;
 - (void)onNetWorkButtonClick;

@@ -9,6 +9,7 @@
 #import "SHRoomsListViewController.h"
 #import "SHRoomCell.h"
 #import "SHRoomDetailViewController.h"
+#import "SHSettingsNewViewController.h"
 
 @interface SHRoomsListViewController ()
 
@@ -108,6 +109,13 @@
 - (void)onBackButtonClick
 {
     [self dismissViewControllerAnimated:YES completion:^(void){
+    }];
+}
+
+- (void)onSettingsButtonClick
+{
+    SHSettingsNewViewController *controller = [[SHSettingsNewViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:controller animated:YES completion:^(void){
     }];
 }
 

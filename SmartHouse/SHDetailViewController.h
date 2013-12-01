@@ -29,6 +29,6 @@
 - (id)initWithType:(int)type;
 - (void)setupNavigationBar:(float)width;
 - (void)onBackButtonClick;
-- (void)onSettingButtonClick;
+- (void)onSettingsButtonClick;
 
 @end

@@ -27,6 +27,10 @@
     self.socketQueue = dispatch_queue_create("socketQueue", NULL);
     self.myModeThread = [[NSThread alloc] initWithTarget:self selector:@selector(queryMode:) object:nil];
     
+    if (![self.myModeThread isExecuting]) {
+        [self.myModeThread start];
+    }
+    
     self.candown = YES;
     self.canup = YES;
     
@@ -71,24 +75,13 @@
     } else {
         self.model = [self.models objectAtIndex:0];
     }
-    if (![self.myModeThread isExecuting]) {
-        [self.myModeThread start];
-        self.needquery = YES;
-    }
-}
-
-- (void)stopQuery
-{
-    self.needquery = NO;
 }
 
 - (void)queryMode:(NSThread *)thread
 {
     while (YES) {
-        if (self.needquery) {
-            [self sendCommand:self.model.queryCmd];
-            [NSThread sleepForTimeInterval:4.0];
-        }
+        [self sendCommand:self.model.queryCmd];
+        [NSThread sleepForTimeInterval:4.0];
     }
 }
 
@@ -118,14 +111,16 @@
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
-    if (self.mainController) {
-        if (err) {
+    if (err) {
+        if (self.mainController) {
             [self.mainController setNetworkState:NO];
-            self.networkState = NO;
-        } else {
-            [self.mainController setNetworkState:YES];
-            self.networkState = YES;
         }
+        self.networkState = NO;
+    } else {
+        if (self.mainController) {
+            [self.mainController setNetworkState:YES];
+        }
+        self.networkState = YES;
     }
 }
 

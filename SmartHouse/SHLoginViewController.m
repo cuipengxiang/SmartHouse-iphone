@@ -97,17 +97,9 @@
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_login_iphone_normal"] forState:UIControlStateNormal];
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_login_iphone_pressed"] forState:UIControlStateHighlighted];
     [self.loginButton sizeToFit];
-    [self.loginButton setFrame:CGRectMake(64.5, 194.0, 193.0, 37.5)];
+    [self.loginButton setFrame:CGRectMake(64.5, 190.0, 193.0, 37.5)];
     [self.loginButton addTarget:self action:@selector(loginCheck) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginButton];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-    return NO;
-}
-
-- (BOOL)shouldAutorotate{
-    return NO;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -115,8 +107,6 @@
     [self.passwordField setPlaceholder:@""];
     [self.passwordField setBackground:[UIImage imageNamed:@"input_box_focused_iphone"]];
 }
-
-
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {

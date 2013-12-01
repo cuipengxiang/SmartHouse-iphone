@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SHControlViewController.h"
+#import "AppDelegate.h"
 #import "SHSettingsViewController.h"
 
 @interface SHSettingsNewViewController : UIViewController<UITextFieldDelegate, UIGestureRecognizerDelegate>
 
 @property(nonatomic, strong)UIView *settingbox;
-@property(nonatomic, retain)SHControlViewController *controller;
 @property(nonatomic, strong)UIButton *password;
 @property(nonatomic, strong)UIButton *network;
 @property(nonatomic, strong)AppDelegate *myAppDelegate;

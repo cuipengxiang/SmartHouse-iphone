@@ -9,6 +9,7 @@
 #import "SHRoomDetailViewController.h"
 #import "SHModeSelectViewController.h"
 #import "SHDetailViewController.h"
+#import "SHSettingsNewViewController.h"
 
 @interface SHRoomDetailViewController ()
 
@@ -133,9 +134,11 @@
     }];
 }
 
-- (void)onSettingButtonClick
+- (void)onSettingsButtonClick
 {
-    
+    SHSettingsNewViewController *controller = [[SHSettingsNewViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:controller animated:YES completion:^(void){
+    }];
 }
 
 - (void)onNetWorkButtonClick

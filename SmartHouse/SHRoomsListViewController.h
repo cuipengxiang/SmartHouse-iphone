@@ -21,5 +21,6 @@
 
 - (void)setupNavigationBar:(float)width;
 - (void)onBackButtonClick;
+- (void)onSettingsButtonClick;
 
 @end

@@ -9,6 +9,7 @@
 #import "SHDetailViewController.h"
 #import "SHDetailContolView.h"
 #import "SHMusicControlView.h"
+#import "SHSettingsNewViewController.h"
 
 @interface SHDetailViewController ()
 
@@ -148,9 +149,11 @@
     }];
 }
 
-- (void)onSettingButtonClick
+- (void)onSettingsButtonClick
 {
-    
+    SHSettingsNewViewController *controller = [[SHSettingsNewViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:controller animated:YES completion:^(void){
+    }];
 }
 
 
