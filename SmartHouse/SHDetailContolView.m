@@ -27,7 +27,7 @@
         [titleLabel setTextColor:[UIColor whiteColor]];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel sizeToFit];
-        [titleLabel setFrame:CGRectMake((frame.size.width - titleLabel.frame.size.width)/2, 22.0, titleLabel.frame.size.width, titleLabel.frame.size.height)];
+        [titleLabel setFrame:CGRectMake((frame.size.width - titleLabel.frame.size.width)/2, 21.0, titleLabel.frame.size.width, titleLabel.frame.size.height)];
         [self addSubview:titleLabel];
     }
     return self;

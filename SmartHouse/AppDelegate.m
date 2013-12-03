@@ -36,6 +36,8 @@
     
     self.networkState = YES;
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    
     return YES;
 }
 
@@ -80,6 +82,9 @@
 - (void)queryMode:(NSThread *)thread
 {
     while (YES) {
+        if (!self.model) {
+            self.model = [self.models objectAtIndex:0];
+        }
         [self sendCommand:self.model.queryCmd];
         [NSThread sleepForTimeInterval:4.0];
     }

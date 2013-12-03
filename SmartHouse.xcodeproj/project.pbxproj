@@ -11,6 +11,9 @@
 		52336A0517C087080094CE29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52336A0317C086D50094CE29 /* Security.framework */; };
 		52336A0617C0870B0094CE29 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52336A0117C086CC0094CE29 /* CFNetwork.framework */; };
 		52E2297C17BBAA470086355A /* SHRoomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2297B17BBAA470086355A /* SHRoomModel.m */; };
+		D81251BA184CBA2100D2AD4F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D81251B7184CBA2100D2AD4F /* Default-568h@2x.png */; };
+		D81251BB184CBA2100D2AD4F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D81251B8184CBA2100D2AD4F /* Default.png */; };
+		D81251BC184CBA2100D2AD4F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D81251B9184CBA2100D2AD4F /* Default@2x.png */; };
 		D816387017BB0501008FAD0E /* SHReadConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D816386F17BB0501008FAD0E /* SHReadConfigFile.m */; };
 		D818FD761843E0E600184026 /* btn_mode_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD741843E0E600184026 /* btn_mode_iphone.png */; };
 		D818FD771843E0E600184026 /* btn_mode_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D818FD751843E0E600184026 /* btn_mode_iphone@2x.png */; };
@@ -141,6 +144,9 @@
 		52336A0317C086D50094CE29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		52E2297A17BBAA470086355A /* SHRoomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRoomModel.h; sourceTree = "<group>"; };
 		52E2297B17BBAA470086355A /* SHRoomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRoomModel.m; sourceTree = "<group>"; };
+		D81251B7184CBA2100D2AD4F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		D81251B8184CBA2100D2AD4F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
+		D81251B9184CBA2100D2AD4F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		D816386E17BB0501008FAD0E /* SHReadConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHReadConfigFile.h; sourceTree = "<group>"; };
 		D816386F17BB0501008FAD0E /* SHReadConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHReadConfigFile.m; sourceTree = "<group>"; };
 		D818FD741843E0E600184026 /* btn_mode_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_mode_iphone.png; sourceTree = "<group>"; };
@@ -195,7 +201,7 @@
 		D8421D0D17BA853500C39DA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8421D0E17BA853500C39DA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D8421D1617BA853500C39DA0 /* SHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHLoginViewController.h; sourceTree = "<group>"; };
-		D8421D1717BA853500C39DA0 /* SHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLoginViewController.m; sourceTree = "<group>"; };
+		D8421D1717BA853500C39DA0 /* SHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHLoginViewController.m; sourceTree = "<group>"; usesTabs = 0; };
 		D85FB0F1184B15520064A92A /* sys_setup_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sys_setup_box.png; sourceTree = "<group>"; };
 		D85FB0F2184B15520064A92A /* sys_setup_box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sys_setup_box@2x.png"; sourceTree = "<group>"; };
 		D85FB0F5184B17160064A92A /* btn_close_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_close_normal.png; sourceTree = "<group>"; };
@@ -315,6 +321,7 @@
 				D8421CFC17BA853500C39DA0 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		D8421CFC17BA853500C39DA0 /* Products */ = {
 			isa = PBXGroup;
@@ -375,6 +382,9 @@
 		D8421D0517BA853500C39DA0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D81251B7184CBA2100D2AD4F /* Default-568h@2x.png */,
+				D81251B8184CBA2100D2AD4F /* Default.png */,
+				D81251B9184CBA2100D2AD4F /* Default@2x.png */,
 				D8399C7A18277B4D00385579 /* icon-retina@2x.png */,
 				D81BD49017C5F16D00D96702 /* icon@2x.png */,
 				D81BD48E17C5F16800D96702 /* icon.png */,
@@ -531,6 +541,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Roc;
+				TargetAttributes = {
+					D8421CFA17BA853500C39DA0 = {
+						DevelopmentTeam = 5BA6RP6GDL;
+					};
+				};
 			};
 			buildConfigurationList = D8421CF617BA853500C39DA0 /* Build configuration list for PBXProject "SmartHouse" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -591,6 +606,7 @@
 				D85FB119184B46AC0064A92A /* btn_cancel_normal.png in Resources */,
 				D818FD761843E0E600184026 /* btn_mode_iphone.png in Resources */,
 				D8399C8C1827956400385579 /* btn_login_iphone_normal.png in Resources */,
+				D81251BB184CBA2100D2AD4F /* Default.png in Resources */,
 				D86C77D51849C1800080C555 /* btn_light_2.png in Resources */,
 				D8399C921827962D00385579 /* input_box_focused_iphone.png in Resources */,
 				D8399C87182793F300385579 /* input_box_iphone@2x.png in Resources */,
@@ -622,6 +638,7 @@
 				D8399C8218278A8E00385579 /* login_box_iphone.png in Resources */,
 				D831DCC11828D29C00DCA400 /* network_disconnected_iphone.png in Resources */,
 				D831DCBB1828D29C00DCA400 /* btn_return_iphone.png in Resources */,
+				D81251BA184CBA2100D2AD4F /* Default-568h@2x.png in Resources */,
 				D81BD49117C5F16D00D96702 /* icon@2x.png in Resources */,
 				D818FD7F1843E42500184026 /* btn_network_out_iphone@2x.png in Resources */,
 				D8399C931827962D00385579 /* input_box_focused_iphone@2x.png in Resources */,
@@ -649,6 +666,7 @@
 				D86C77F7184A31560080C555 /* music_ctrl_panel.png in Resources */,
 				D86C77C81849BFCE0080C555 /* bg_detail_iphone@2x.png in Resources */,
 				D8AB3F6F182B3C91006E0D21 /* left_iphone.png in Resources */,
+				D81251BC184CBA2100D2AD4F /* Default@2x.png in Resources */,
 				D831DCBF1828D29C00DCA400 /* network_connected_iphone.png in Resources */,
 				D8AB3F70182B3C91006E0D21 /* left_iphone@2x.png in Resources */,
 				D86C77DC1849E0E20080C555 /* curtain_ctrl_panel@2x.png in Resources */,
@@ -713,10 +731,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: 鹏翔 崔 (GVQA7B9MVH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 鹏翔 崔 (GVQA7B9MVH)";
+				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -726,10 +745,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				SDKROOT = iphoneos6.1;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -745,16 +764,19 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 鹏翔 崔 (GVQA7B9MVH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 鹏翔 崔 (GVQA7B9MVH)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				SDKROOT = iphoneos6.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -768,7 +790,7 @@
 				INFOPLIST_FILE = "SmartHouse/SmartHouse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5AB527AA-E54B-49B1-89B8-1176EFAA4E51";
+				PROVISIONING_PROFILE = "FDECD15E-F20A-4C9C-80D9-D27B32138409";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -783,7 +805,7 @@
 				INFOPLIST_FILE = "SmartHouse/SmartHouse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5AB527AA-E54B-49B1-89B8-1176EFAA4E51";
+				PROVISIONING_PROFILE = "FDECD15E-F20A-4C9C-80D9-D27B32138409";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

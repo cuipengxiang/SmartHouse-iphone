@@ -32,6 +32,5 @@
 
 - (void)sendCommand:(NSString *)command;
 - (void)startQuery:(SHRoomModel *)queryModel from:(UIViewController *)controller;
-- (void)stopQuery;
 
 @end

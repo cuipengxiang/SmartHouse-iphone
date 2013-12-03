@@ -106,7 +106,7 @@
 {
     [super viewDidLoad];
 	[self setupNavigationBar:320.0];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_detail_iphone"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg_iphone"]]];
     
     detailView = [[UIScrollView alloc] initWithFrame:CGRectMake(5.0, 54.0, 310.0, App_Height - 64.0)];
     [detailView setBackgroundColor:[UIColor clearColor]];
