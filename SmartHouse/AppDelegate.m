@@ -31,9 +31,6 @@
         [self.myModeThread start];
     }
     
-    self.candown = YES;
-    self.canup = YES;
-    
     self.networkState = YES;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];

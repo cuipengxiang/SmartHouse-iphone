@@ -31,5 +31,4 @@
 - (void)onButtonDown:(UIButton *)button;
 - (void)onButtonUp:(UIButton *)button;
 
-
 @end

@@ -16,8 +16,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GCDAsyncSocketDelegate>
 
 @property(nonatomic) dispatch_queue_t socketQueue;
-@property BOOL candown;
-@property BOOL canup;
 @property(strong) SHStateViewController *mainController;
 @property(strong, nonatomic) NSString *host;
 @property(strong, nonatomic) NSString *host1;

@@ -11,6 +11,10 @@
 		52336A0517C087080094CE29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52336A0317C086D50094CE29 /* Security.framework */; };
 		52336A0617C0870B0094CE29 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52336A0117C086CC0094CE29 /* CFNetwork.framework */; };
 		52E2297C17BBAA470086355A /* SHRoomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E2297B17BBAA470086355A /* SHRoomModel.m */; };
+		D80B5048185948640055F6A1 /* btn_quit.png in Resources */ = {isa = PBXBuildFile; fileRef = D80B5046185948630055F6A1 /* btn_quit.png */; };
+		D80B5049185948640055F6A1 /* btn_quit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D80B5047185948640055F6A1 /* btn_quit@2x.png */; };
+		D80B504C185948C50055F6A1 /* bg_mode_big.png in Resources */ = {isa = PBXBuildFile; fileRef = D80B504A185948C50055F6A1 /* bg_mode_big.png */; };
+		D80B504D185948C50055F6A1 /* bg_mode_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D80B504B185948C50055F6A1 /* bg_mode_big@2x.png */; };
 		D81251BA184CBA2100D2AD4F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D81251B7184CBA2100D2AD4F /* Default-568h@2x.png */; };
 		D81251BB184CBA2100D2AD4F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D81251B8184CBA2100D2AD4F /* Default.png */; };
 		D81251BC184CBA2100D2AD4F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D81251B9184CBA2100D2AD4F /* Default@2x.png */; };
@@ -144,6 +148,10 @@
 		52336A0317C086D50094CE29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		52E2297A17BBAA470086355A /* SHRoomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRoomModel.h; sourceTree = "<group>"; };
 		52E2297B17BBAA470086355A /* SHRoomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRoomModel.m; sourceTree = "<group>"; };
+		D80B5046185948630055F6A1 /* btn_quit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_quit.png; sourceTree = "<group>"; };
+		D80B5047185948640055F6A1 /* btn_quit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_quit@2x.png"; sourceTree = "<group>"; };
+		D80B504A185948C50055F6A1 /* bg_mode_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_mode_big.png; sourceTree = "<group>"; };
+		D80B504B185948C50055F6A1 /* bg_mode_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_mode_big@2x.png"; sourceTree = "<group>"; };
 		D81251B7184CBA2100D2AD4F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		D81251B8184CBA2100D2AD4F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		D81251B9184CBA2100D2AD4F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -399,6 +407,10 @@
 		D8F056E217BA8AAE00DF2928 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D80B504A185948C50055F6A1 /* bg_mode_big.png */,
+				D80B504B185948C50055F6A1 /* bg_mode_big@2x.png */,
+				D80B5046185948630055F6A1 /* btn_quit.png */,
+				D80B5047185948640055F6A1 /* btn_quit@2x.png */,
 				D85FB111184B46AC0064A92A /* btn_cancel_normal.png */,
 				D85FB112184B46AC0064A92A /* btn_cancel_normal@2x.png */,
 				D85FB113184B46AC0064A92A /* btn_cancel_pressed.png */,
@@ -579,6 +591,7 @@
 				D8337D0F182C7D5C00878FA2 /* mode_normal_iphone@2x.png in Resources */,
 				D831DCB11828D08400DCA400 /* topbar_bg_iphone.png in Resources */,
 				D831DCC01828D29C00DCA400 /* network_connected_iphone@2x.png in Resources */,
+				D80B504D185948C50055F6A1 /* bg_mode_big@2x.png in Resources */,
 				D86C77F0184A31560080C555 /* music_control1@2x.png in Resources */,
 				D8AB3F69182B3958006E0D21 /* btn_music_iphone.png in Resources */,
 				D85FB11C184B46AC0064A92A /* btn_cancel_pressed@2x.png in Resources */,
@@ -594,6 +607,7 @@
 				D86C77EE184A31560080C555 /* music_control4@2x.png in Resources */,
 				D85FB104184B178B0064A92A /* bg_setup_line@2x.png in Resources */,
 				D86C77EF184A31560080C555 /* music_control1.png in Resources */,
+				D80B5048185948640055F6A1 /* btn_quit.png in Resources */,
 				D86C77D81849C1800080C555 /* light_ctrl_panel@2x.png in Resources */,
 				D818FD7D1843E42500184026 /* btn_network_in_iphone@2x.png in Resources */,
 				D85FB11F184B46AC0064A92A /* btn_commit_pressed.png in Resources */,
@@ -608,6 +622,7 @@
 				D8399C8C1827956400385579 /* btn_login_iphone_normal.png in Resources */,
 				D81251BB184CBA2100D2AD4F /* Default.png in Resources */,
 				D86C77D51849C1800080C555 /* btn_light_2.png in Resources */,
+				D80B504C185948C50055F6A1 /* bg_mode_big.png in Resources */,
 				D8399C921827962D00385579 /* input_box_focused_iphone.png in Resources */,
 				D8399C87182793F300385579 /* input_box_iphone@2x.png in Resources */,
 				D8399C7B18277B4D00385579 /* icon-retina@2x.png in Resources */,
@@ -619,6 +634,7 @@
 				D86C77F6184A31560080C555 /* music_control2@2x.png in Resources */,
 				D86C77D61849C1800080C555 /* btn_light_2@2x.png in Resources */,
 				D86C77DB1849E0E20080C555 /* curtain_ctrl_panel.png in Resources */,
+				D80B5049185948640055F6A1 /* btn_quit@2x.png in Resources */,
 				D86C77EB184A31560080C555 /* btn_bg_music.png in Resources */,
 				D85FB10A184B1B2E0064A92A /* btn_switch_1@2x.png in Resources */,
 				D86C77D71849C1800080C555 /* light_ctrl_panel.png in Resources */,
@@ -747,6 +763,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "34D1400C-2E59-4806-BB14-43CC38EFC6E1";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -775,6 +792,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "34D1400C-2E59-4806-BB14-43CC38EFC6E1";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -790,7 +808,7 @@
 				INFOPLIST_FILE = "SmartHouse/SmartHouse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FDECD15E-F20A-4C9C-80D9-D27B32138409";
+				PROVISIONING_PROFILE = "34D1400C-2E59-4806-BB14-43CC38EFC6E1";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -805,7 +823,7 @@
 				INFOPLIST_FILE = "SmartHouse/SmartHouse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FDECD15E-F20A-4C9C-80D9-D27B32138409";
+				PROVISIONING_PROFILE = "34D1400C-2E59-4806-BB14-43CC38EFC6E1";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

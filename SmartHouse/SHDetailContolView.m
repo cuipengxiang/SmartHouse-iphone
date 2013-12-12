@@ -101,7 +101,7 @@
     } else if (names.count == 3) {
         for (int i = 0; i < names.count; i++) {
             UIButton *button = [[UIButton alloc] init];
-            [button setFrame:CGRectMake(20 + i*82.5, 70.0, 51, 26)];
+            [button setFrame:CGRectMake(27.0 + i*75.5, 70.0, 51, 26)];
             [button setTag:BUTTON_BASE_TAG + i];
             
             [button setTitle:[names objectAtIndex:i] forState:UIControlStateNormal];
@@ -124,39 +124,32 @@
     });
 }
 
+
 - (void)onButtonUp:(UIButton *)button
 {
     up = [NSDate date];
     NSTimeInterval time = [up timeIntervalSinceDate:down];
-    if ((self.myDelegate.canup)&&(!self.myDelegate.candown)) {
-        self.myDelegate.canup = NO;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^(void){
-            if (time < 0.4) {
-                [NSThread sleepForTimeInterval:0.4 - time];
-            }
-            NSError *error;
-            GCDAsyncSocket *socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.socketQueue];
-            socket.command = [NSString stringWithFormat:@"%@\r\n", [self.buttonCmds objectAtIndex:(button.tag - BUTTON_BASE_TAG)*2 - 1]];
-            [socket connectToHost:self.myDelegate.host onPort:self.myDelegate.port withTimeout:3.0 error:&error];
-        });
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^(void){
+        if (time < 0.4) {
+            [NSThread sleepForTimeInterval:0.4 - time];
+        }
+        NSError *error;
+        GCDAsyncSocket *socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.socketQueue];
+        socket.command = [NSString stringWithFormat:@"%@\r\n", [self.buttonCmds objectAtIndex:(button.tag - BUTTON_BASE_TAG)*2 - 1]];
+        [socket connectToHost:self.myDelegate.host onPort:self.myDelegate.port withTimeout:3.0 error:&error];
+    });
 }
 
 - (void)onButtonDown:(UIButton *)button
 {
     down = [NSDate date];
-    if (self.myDelegate.candown) {
-        self.myDelegate.candown = NO;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^(void){
-            NSError *error;
-            GCDAsyncSocket *socket = [[GCDAsyncSocket alloc] initWithDelegate:self.controller delegateQueue:self.controller.socketQueue];
-            socket.command = [NSString stringWithFormat:@"%@\r\n", [self.buttonCmds objectAtIndex:(button.tag - BUTTON_BASE_TAG)*2 - 2]];
-            [socket connectToHost:self.myDelegate.host onPort:self.myDelegate.port withTimeout:3.0 error:&error];
-        });
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^(void){
+        NSError *error;
+        GCDAsyncSocket *socket = [[GCDAsyncSocket alloc] initWithDelegate:self.controller delegateQueue:self.controller.socketQueue];
+        socket.command = [NSString stringWithFormat:@"%@\r\n", [self.buttonCmds objectAtIndex:(button.tag - BUTTON_BASE_TAG)*2 - 2]];
+        [socket connectToHost:self.myDelegate.host onPort:self.myDelegate.port withTimeout:3.0 error:&error];
+    });
 }
-
-
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
 {
@@ -168,8 +161,6 @@
     [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:1 tag:0];
     [sock disconnect];
     sock = nil;
-    self.myDelegate.candown = YES;
-    self.myDelegate.canup = YES;
 }
 
 

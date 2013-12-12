@@ -99,7 +99,11 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     scrollBackView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 44.0, 320.0, App_Height - 44.0)];
-    [scrollBackView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_mode_iphone"]]];
+    if (App_Height > 480.0) {
+        [scrollBackView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_mode_big"]]];
+    } else {
+        [scrollBackView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_mode_iphone"]]];
+    }
     [self.view addSubview:scrollBackView];
     
     scrollLeft = [[UIButton alloc] initWithFrame:CGRectMake(24.5, (App_Height - 44.0 - 39.0)/2, 21.0, 39.0)];
@@ -112,13 +116,14 @@
     [scrollRight setBackgroundImage:[UIImage imageNamed:@"right_iphone"] forState:UIControlStateSelected];
     [scrollRight addTarget:self action:@selector(onScrollRightClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [scrollBackView addSubview:scrollLeft];
-    [scrollBackView addSubview:scrollRight];
+    //[scrollBackView addSubview:scrollLeft];
+    //[scrollBackView addSubview:scrollRight];
     
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(60.0, (App_Height - 44.0 - 300.0)/2, 200.0, 300.0)];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10.0, (App_Height - 44.0 - 300.0)/2, 300.0, 300.0)];
     [scrollView setBackgroundColor:[UIColor clearColor]];
     [scrollView setBounces:YES];
     [scrollView setShowsHorizontalScrollIndicator:NO];
+    [scrollView setShowsVerticalScrollIndicator:NO];
     [scrollView setPagingEnabled:YES];
     pageCount = 0;
     if (self.model.modesNames.count%3 == 0) {
@@ -126,11 +131,11 @@
     } else {
         pageCount = self.model.modesNames.count/3 + 1;
     }
-    [scrollView setContentSize:CGSizeMake(180.0*pageCount, 300.0f)];
+    [scrollView setContentSize:CGSizeMake(200.0, 300.0f*pageCount)];
     [scrollBackView addSubview:scrollView];
     
     for (int i = 0; i < self.model.modesNames.count; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(18.0+i/3*200.0 , 25.0 + i%3*96.0, 164.0, 58.0)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(68.0, 21.0 + i*100.0, 164.0, 58.0)];
         [button setTag:i + MODE_BTN_BASE_TAG];
         [button setBackgroundImage:[UIImage imageNamed:@"mode_normal_iphone"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"mode_selected_iphone"] forState:UIControlStateSelected];
